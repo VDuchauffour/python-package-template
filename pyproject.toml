@@ -1,0 +1,37 @@
+[tool.autoflake]
+check = true
+
+[tool.mypy]
+ignore_missing_imports = true
+
+[tool.black]
+preview = true
+
+[tool.isort]
+profile = "black"
+filter_files = true
+
+[tool.coverage.run]
+branch = true
+omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
+
+[tool.coverage.report]
+fail_under = 80
+show_missing = true
+omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
+exclude_lines = ["if __name__ == .__main__.:", "raise NotImplementedError()"]
+
+[tool.interrogate]
+fail-under = 80
+ignore-module = true
+ignore-nested-functions = true
+ignore-private = true
+exclude = ["tests"]
+
+[tool.pydocstyle]
+ignore = "D100,D202,D203,D205,D212,D407,D413,D401,D415,D400,D200,D406"
+match-dir = "!tests"
+
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]
