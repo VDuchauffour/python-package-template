@@ -1,0 +1,11 @@
+pre-commit
+flake8
+autoflake
+bandit
+interrogate
+pydocstyle
+black
+isort
+pytest
+mypy
+coverage[toml]
