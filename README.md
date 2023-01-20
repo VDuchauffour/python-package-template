@@ -74,3 +74,9 @@ Install development requirements
 ```shell
 pip install -r requirements-dev.txt
 ```
+
+Install pre-commit hooks
+
+```shell
+pre-commit install
+```
