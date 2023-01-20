@@ -10,5 +10,18 @@ setup(
     author_email="",
     url="",
     install_requires=[],
-    packages=find_packages(),
+    packages=find_packages(
+        exclude=[
+            "test",
+            "tests",
+            "tests.*",
+            "*.tests",
+            "*.tests.*",
+            "examples",
+            "docs",
+            "out",
+            "dist",
+            "media",
+        ]
+    ),
 )
