@@ -5,8 +5,8 @@
 <a href="https://black.readthedocs.io/en/stable/">
     <img alt="Black" src="https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray"/>
 </a>
-<a href="https://github.com/VDuchauffour/python-package-template/actions/workflows/code-quality-pr.yml">
-    <img alt="Code quality PR" src="https://github.com/VDuchauffour/python-package-template/actions/workflows/code-quality-pr.yml/badge.svg"/>
+<a href="https://github.com/VDuchauffour/python-package-template/actions/workflows/pr_code_quality.yml">
+    <img alt="Code quality PR" src="https://github.com/VDuchauffour/python-package-template/actions/workflows/pr_code_quality.yml/badge.svg"/>
 </a>
 <a href="https://github.com/pre-commit/pre-commit">
     <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
