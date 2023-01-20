@@ -9,7 +9,6 @@ setup(
     author="",
     author_email="",
     url="",
-    install_requires=[],
     packages=find_packages(
         exclude=[
             "test",
@@ -24,4 +23,7 @@ setup(
             "media",
         ]
     ),
+    install_requires=[],
+    extras_require={},
+    entry_points={"console_scripts": []},
 )
