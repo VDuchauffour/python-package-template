@@ -42,7 +42,9 @@ repos:
         args:
           [
             "--extend-ignore",
-            "E501,E203",
+            "E501,E203,E231",
+            "--per-file-ignore",
+            "__init__.py: E402,F401",
             "--extend-exclude",
             "logs/*,data/*,tests/*",
           ]
