@@ -11,9 +11,6 @@
 <a href="https://github.com/pre-commit/pre-commit">
     <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
 </a>
-<a href="https://github.com/VDuchauffour/python-package-template#license">
-    <img alt="Licence" src="https://img.shields.io/badge/License-MIT-green.svg?labelColor=gray"/>
-</a>
 
 *Lightweight template for Python package*
 
