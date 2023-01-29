@@ -1,12 +1,13 @@
 # Apply black formatter when a push or a PR occurs
-name: Format Codebase
+name: Format codebase
 on: [push, pull_request]
 jobs:
   black:
     name: runner / black
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - name: Checkout
+        uses: actions/checkout@v3
       - name: Check files using the black formatter
         uses: psf/black@stable
         id: action_black
