@@ -36,12 +36,14 @@ ______________________________________________________________________
 
 # Your Project Name
 
-<img alt="Python" src="https://img.shields.io/badge/Python-FFD43B?logo=python&logoColor=3572A5"/>
 <a href="https://black.readthedocs.io/en/stable/">
     <img alt="Black" src="https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray"/>
 </a>
 <a href="https://github.com/pre-commit/pre-commit">
     <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
+</a>
+<a href="https://interrogate.readthedocs.io/en/latest/#">
+    <img alt="Interrogate" src="./badges/interrogate_badge.svg"/>
 </a>
 
 </div>
