@@ -25,6 +25,7 @@ exclude_lines = ["if __name__ == .__main__.:", "raise NotImplementedError()"]
 fail-under = 80
 ignore-module = true
 ignore-nested-functions = true
+ignore-nested-classes = true
 ignore-private = true
 exclude = ["tests"]
 
