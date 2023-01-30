@@ -12,4 +12,4 @@ jobs:
       - name: Install interrogate
         run: pip install interrogate
       - name: Run interrogate
-        run: interrogate --generate-badge ./badges
+        run: interrogate --generate-badge ./badges --badge-style flat
