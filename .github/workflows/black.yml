@@ -1,6 +1,9 @@
 # Apply black formatter when a push or a PR occurs
 name: Format codebase
 on: [push, pull_request]
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   black:
     name: runner / black
