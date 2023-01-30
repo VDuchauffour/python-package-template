@@ -1,6 +1,9 @@
 # Apply interrogate and generate its badge when a push or a PR occurs
 name: Interrogate codebase for docstring coverage
 on: [push, pull_request]
+permissions:
+  contents: write
+  pull-requests: write
 jobs:
   interrogate:
     runs-on: ubuntu-latest
