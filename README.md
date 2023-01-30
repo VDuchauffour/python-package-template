@@ -12,7 +12,7 @@
     <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
 </a>
 
-*Lightweight template for Python package*
+_Lightweight template for Python package_
 
 </div>
 
@@ -25,19 +25,22 @@ This project provide a flexible and lightweight Python package template. It incl
 
 The `requirements-dev.txt` file which contains development dependencies.
 
+### Github actions
+
 The project contains multiple Github workflow, including:
 
-- `black`, apply black formatter when a push or a PR occurs
-- `interrogate`, apply interrogate (docstring coverage) and generate its badge when a push or a PR occurs
+- `black`, apply black formatter when a push or a pull request occurs
+- `coverage`, run code coverage and tests with pytest and coverage, then generate the coverage badge when a push or a pull request occurs
+- `interrogate`, apply interrogate (docstring coverage) and generate its badge when a push or a pull request occurs
 - `publish`, publish to PyPI once a release has been published (requires a `PYPI_API_TOKEN` secret)
 - `pre_commit_auto_update`, run a `pre-commit autoupdate` every week and open a pull request if needed
-- `pr_code_quality`, apply `pre-commit` on modified files when a pull request occurs
+- `pr_code_quality`, apply `pre-commit` on modified files when a pull request occurs on "main", "master", "dev" or "release/\*"
 - `pr_description_enforcer`, enforce description on pull requests
 - `release_drafter`, draft a new release when a pull request are merged into "main" or "master"
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
 
-The generated badges are located in the `badges` folder.
+The generated badges are located in the `badges` folder, it contains the interrogate and the code coverage.
 
 ## Acknowledgements
 
@@ -59,6 +62,9 @@ ______________________________________________________________________
 </a>
 <a href="https://interrogate.readthedocs.io/en/latest/#">
     <img alt="Interrogate" src="./badges/interrogate_badge.svg"/>
+</a>
+<a href="https://coverage.readthedocs.io/en/latest/#">
+    <img alt="Coverage" src="./badges/coverage_badge.svg"/>
 </a>
 
 </div>

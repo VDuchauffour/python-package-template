@@ -1,0 +1,32 @@
+# Apply coverage and generate its badge when a push or a PR occurs
+name: Code coverage
+on: [push, pull_request]
+permissions:
+  contents: write
+  pull-requests: write
+jobs:
+  interrogate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Setup Python
+        uses: actions/setup-python@v4
+      - name: Install dependencies
+        run: pip install ".[dev]"
+      - name: Run tests
+        run: coverage run -m pytest
+      - name: Generate badge
+        run: coverage-badge -fo badges/coverage_badge.svg
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add badges/coverage_badge.svg
+          git diff --exit-code || git commit -m "Update coverage_badge.svg" -a
+      - name: Push changes
+        if: success()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: ${{ github.ref }}
