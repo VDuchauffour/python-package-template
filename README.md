@@ -22,8 +22,9 @@ This project provide a flexible and lightweight Python package template. It incl
 
 - a `pre-commit` pipeline which apply the same dependencies
 - a `pyproject.toml` file which define the configuration of the dependencies. You can use it later with your favorite package manager like `Poetry` or `PDM` with commands, resp. `poetry init` and `pdm init`
-
-The `requirements-dev.txt` file which contains development dependencies.
+- a `flake8` config file
+- a `requirements-dev.txt` file which contains development dependencies.
+- a minimalist `setup.py`
 
 ### Github actions
 
