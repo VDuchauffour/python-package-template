@@ -1,5 +1,5 @@
 # This workflow will enforce description on pull requests.
-name: "PR Description Enforcer"
+name: PR Description Enforcer
 on:
   pull_request:
     types: [opened, edited, reopened]
