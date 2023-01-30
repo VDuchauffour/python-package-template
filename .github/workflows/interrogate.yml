@@ -13,3 +13,14 @@ jobs:
         run: pip install interrogate
       - name: Run interrogate
         run: interrogate --generate-badge ./badges --badge-style flat
+      - name: Commit files
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git add badges/interrogate_badge.svg
+          git diff --exit-code || git commit -m "Update interrogate_badge.svg" -a
+      - name: Push changes
+        if: success()
+        uses: ad-m/github-push-action@master
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
