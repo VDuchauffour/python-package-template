@@ -1,3 +1,4 @@
+# Run a pre-commit autoupdate every week and open a pull request if needed
 name: Pre-commit auto-update
 permissions:
   contents: write
