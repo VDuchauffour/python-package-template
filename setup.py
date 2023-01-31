@@ -15,7 +15,11 @@ EXCLUDE_DIRS = [
     "media",
 ]
 
-DEV_REQUIREMENTS = open("requirements-dev.txt").read().strip().split()
+try:
+    DEV_REQUIREMENTS = open("requirements-dev.txt").read().strip().split()
+except FileNotFoundError:
+    DEV_REQUIREMENTS = []
+
 EXTRAS = {"dev": DEV_REQUIREMENTS}
 
 setup(
