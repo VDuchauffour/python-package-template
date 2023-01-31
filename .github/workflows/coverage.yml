@@ -22,8 +22,7 @@ jobs:
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git add badges/coverage_badge.svg
-          git diff --exit-code || git commit -m "Update coverage_badge.svg" -a
+          git diff --exit-code || git commit -am "Update coverage_badge.svg"
       - name: Push changes
         if: success()
         uses: ad-m/github-push-action@master
