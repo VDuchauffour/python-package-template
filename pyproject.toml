@@ -22,6 +22,7 @@ omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
 [tool.coverage.report]
 fail_under = 80
 show_missing = true
+ignore_errors = true
 omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
 exclude_lines = ["if __name__ == .__main__.:", "raise NotImplementedError()"]
 
