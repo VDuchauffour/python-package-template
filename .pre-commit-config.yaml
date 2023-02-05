@@ -16,7 +16,7 @@ repos:
     rev: 22.12.0
     hooks:
       - id: black
-        args: [--preview]
+        args: ["--config", "pyproject.toml"]
   # Python's import formatter
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
@@ -39,28 +39,28 @@ repos:
     rev: 6.0.0
     hooks:
       - id: flake8
-        args:
-          [
-            "--extend-ignore",
-            "E501,E203,E231",
-            "--per-file-ignore",
-            "__init__.py: E402,F401",
-            "--extend-exclude",
-            "logs/*,data/*,tests/*",
-          ]
+        args: ["--append-config", ".flake8"]
   # Python security linter
   - repo: https://github.com/PyCQA/bandit
     rev: "1.7.4"
     hooks:
       - id: bandit
-        args: ["-s", "B101"]
-        exclude: "tests"
+        args: ["-c", "pyproject.toml"]
+        additional_dependencies: ["bandit[toml]"]
   # Python tool for docstring coverage
   - repo: https://github.com/econchick/interrogate
     rev: 1.5.0
     hooks:
       - id: interrogate
-        args: [--exclude=tests, --fail-under=80, -I, -M, -n, -P]
+        args:
+          [
+            "--config",
+            "pyproject.toml",
+            "--generate-badge",
+            "./badges",
+            "--badge-style",
+            "flat",
+          ]
         pass_filenames: false
   # Python tool for docstring style checker
   - repo: https://github.com/pycqa/pydocstyle
@@ -69,9 +69,12 @@ repos:
       - id: pydocstyle
         args:
           [
-            "--ignore=D100,D202,D203,D205,D212,D407,D413,D401,D415,D400,D200,D406",
-            "--match=[^.toml]",
+            "--ignore",
+            "D100,D200,D202,D203,D205,D212,D400,D401,D406,D407,D413,D415",
+            "--match-dir",
+            "^(?!\\..*|test).*",
           ]
+        additional_dependencies: ["tomli"]
         exclude: "tests"
   # Formatter for Json and Yaml files
   - repo: https://github.com/pre-commit/mirrors-prettier
