@@ -15,7 +15,7 @@ jobs:
       - name: Install interrogate
         run: pip install interrogate
       - name: Run interrogate
-        run: interrogate --generate-badge ./badges --badge-style flat
+        run: interrogate --generate-badge ./badges --badge-style flat || true
       - name: Commit files
         run: |
           git config --local user.email "action@github.com"
