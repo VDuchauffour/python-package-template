@@ -5,6 +5,10 @@ build-backend = "setuptools.build_meta"
 [tool.autoflake]
 check = true
 
+[tool.bandit]
+exclude_dirs = ["tests"]
+skips = ["B101"]
+
 [tool.mypy]
 ignore_missing_imports = true
 
@@ -30,14 +34,9 @@ exclude_lines = ["if __name__ == .__main__.:", "raise NotImplementedError()"]
 fail-under = 80
 ignore-module = true
 ignore-nested-functions = true
-ignore-nested-classes = true
 ignore-private = true
 exclude = ["tests"]
 
 [tool.pydocstyle]
-ignore = "D100,D202,D203,D205,D212,D407,D413,D401,D415,D400,D200,D406"
-match-dir = "!tests"
-
-[tool.bandit]
-exclude_dirs = ["tests"]
-skips = ["B101"]
+ignore = "D100,D200,D202,D203,D205,D212,D400,D401,D406,D407,D413,D415"
+match-dir = "^(?!\\..*|test).*"
