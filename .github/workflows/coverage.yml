@@ -1,4 +1,4 @@
-# Apply coverage and generate its badge when a push or a PR occurs
+# Run unit tests, apply coverage and generate its badge when a push or a PR occurs
 name: Code coverage
 on: [push, pull_request]
 permissions:
