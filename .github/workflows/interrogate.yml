@@ -23,9 +23,9 @@ jobs:
           git diff --exit-code || git commit -am "Update interrogate_badge.svg"
       - name: Push changes
         if: success()
-        uses: ad-m/github-push-action@master
         env:
-         BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
+        uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: $BRANCH_NAME
+          branch: ${{ BRANCH_NAME }}
