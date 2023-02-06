@@ -1,6 +1,6 @@
 ---
 name: Feature request
-about: Suggest an idea for Interrogate
+about: Suggest an idea for the project
 title: ''
 labels: enhancement, needs triage
 assignees:
@@ -18,7 +18,7 @@ assignees:
 
 ### Your Environment
 
-<!-- It can help for us to know how you're using interrogate -->
+<!-- It can help for us to know how you're using the package -->
 
 - `package` version(s) (`package --version`:
 - Operating System(s):
