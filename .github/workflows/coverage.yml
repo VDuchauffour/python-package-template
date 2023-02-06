@@ -4,6 +4,9 @@ on: [push, pull_request]
 permissions:
   contents: write
   pull-requests: write
+concurrency:
+  group: ${{ github.head_ref || github.ref_name }}
+  cancel-in-progress: true
 jobs:
   coverage:
     runs-on: ubuntu-latest
@@ -25,9 +28,6 @@ jobs:
           git diff --exit-code || git commit -am "Update coverage_badge.svg"
       - name: Push changes
         if: success()
-        env:
-          BRANCH_NAME: ${{ github.head_ref || github.ref_name }}
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ BRANCH_NAME }}
