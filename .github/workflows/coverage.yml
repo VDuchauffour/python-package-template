@@ -13,6 +13,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
       - name: Install dependencies
@@ -21,13 +23,19 @@ jobs:
         run: coverage run -m pytest
       - name: Generate badge
         run: coverage-badge -fo badges/coverage_badge.svg
+      - name: Check changed files
+        id: verify-changed-files
+        uses: tj-actions/verify-changed-files@v35.5.0
+        with:
+          files: badges
       - name: Commit files
+        if: steps.verify-changed-files.outputs.any_changed == 'true'
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git diff --exit-code || git commit -am "Update coverage_badge.svg"
+          git commit -am "Update coverage_badge.svg"
       - name: Push changes
-        if: success()
+        if: steps.verify-changed-files.outputs.any_changed == 'true'
         uses: ad-m/github-push-action@master
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
