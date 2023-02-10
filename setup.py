@@ -2,6 +2,8 @@
 
 from setuptools import find_packages, setup
 
+from package import __version__
+
 
 def read_requirements(
     path: str,
@@ -45,7 +47,7 @@ EXCLUDE_DIRS = [
 
 setup(
     name="package",
-    version="0.0.1",
+    version=__version__,
     description="",
     author="",
     author_email="",
