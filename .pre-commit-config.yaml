@@ -13,7 +13,7 @@ repos:
       - id: check-added-large-files
   # Python code formatter
   - repo: https://github.com/psf/black
-    rev: 22.12.0
+    rev: 23.1.0
     hooks:
       - id: black
         args: ["--config", "pyproject.toml"]
@@ -31,7 +31,7 @@ repos:
         args: [--py310-plus]
   # Automatically remove unused builtins imports and variables
   - repo: https://github.com/PyCQA/autoflake
-    rev: v2.0.0
+    rev: v2.0.1
     hooks:
       - id: autoflake
   # Python check (PEP8), programming errors and code complexity
@@ -78,7 +78,7 @@ repos:
         exclude: "tests"
   # Formatter for Json and Yaml files
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.4
+    rev: v3.0.0-alpha.6
     hooks:
       - id: prettier
         types: [json, yaml, toml]
