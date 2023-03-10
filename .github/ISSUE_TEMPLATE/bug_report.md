@@ -10,7 +10,7 @@ assignees:
 
 <!-- Please include if you've confirmed one version of something works while another one does not -->
 
-- `package` version(s) (`package --version`:
+- `package` version(s):
 - Operating System(s):
 - Python version(s):
 
