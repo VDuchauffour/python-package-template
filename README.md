@@ -22,12 +22,11 @@ This project provide a flexible and lightweight Python package template. It incl
 
 The project contains multiple Github workflow, including:
 
-- `ci`, apply linting and run tests with `pytest` and `pytest-cov`
-- `draft`, draft a new release when a pull request are merged into "main" or "master"
+- `ci`, apply linting and run tests with `pytest` and `pytest-cov`.
+- `draft`, draft a new release when a pull request are merged into "main" or "master".
 - `release`, create and update a latest tag pointing to your latest release, publish this release to PyPI index.
-- `submodules_update`, perform a `git pull` on every submodules, requires a `PAT_TOKEN` secret for checkout of private submodules
-- `pre_commit_auto_update`, run a `pre-commit autoupdate` every week and open a pull request if needed
-- `pr_description_enforcer`, enforce description on pull requests
+- `pre_commit_auto_update`, run a `pre-commit autoupdate` every week and open a pull request if needed.
+- `pr_description_enforcer`, enforce description on pull requests.
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
 
