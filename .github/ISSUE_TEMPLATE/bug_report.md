@@ -1,8 +1,8 @@
 ---
 name: Bug report
 about: Create a report to help us improve
-title: '[Bug] '
-labels: [bug, triage]
+title: "[Bug] "
+labels: [bug]
 assignees:
 ---
 
@@ -10,7 +10,7 @@ assignees:
 
 <!-- Please include if you've confirmed one version of something works while another one does not -->
 
-- `package` version(s):
+- Package version(s):
 - Operating System(s):
 - Python version(s):
 

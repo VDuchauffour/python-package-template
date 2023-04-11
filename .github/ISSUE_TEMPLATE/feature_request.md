@@ -1,8 +1,8 @@
 ---
 name: Feature request
 about: Suggest an idea for the project
-title: ''
-labels: enhancement, needs triage
+title: "[Feature] "
+labels: [enhancement]
 assignees:
 ---
 
@@ -20,7 +20,7 @@ assignees:
 
 <!-- It can help for us to know how you're using the package -->
 
-- `package` version(s) (`package --version`:
+- Package version(s):
 - Operating System(s):
 - Python version(s):
 
