@@ -2,15 +2,8 @@
 
 # Python-Package-Template
 
-<a href="https://black.readthedocs.io/en/stable/">
-    <img alt="Black" src="https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray"/>
-</a>
-<a href="https://github.com/VDuchauffour/python-package-template/actions/workflows/pr_code_quality.yml">
-    <img alt="Code quality PR" src="https://github.com/VDuchauffour/python-package-template/actions/workflows/pr_code_quality.yml/badge.svg"/>
-</a>
-<a href="https://github.com/pre-commit/pre-commit">
-    <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
-</a>
+[![CI](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VDuchauffour/python-package-template/actions?query=workflow%3Aci+branch%3Amain)
+[![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/)
 
 _Lightweight template for Python package_
 
@@ -20,28 +13,32 @@ _Lightweight template for Python package_
 
 This project provide a flexible and lightweight Python package template. It includes the following components:
 
-- a `pre-commit` pipeline which apply the same dependencies
-- a `pyproject.toml` file which define the configuration of the dependencies. You can use it later with your favorite package manager like `Poetry` or `PDM` with commands, resp. `poetry init` and `pdm init`
-- a `flake8` config file
+- a `pyproject.toml` file which define the configuration of the dependencies. The specifications defined by PEP 621 of project metadata are stored in this file.
+- a `requirements.txt` file which contains dependencies.
 - a `requirements-dev.txt` file which contains development dependencies.
-- a minimalist `setup.py`
+- a `.pre-commit-config.yaml` pipeline which apply the same dependencies
 
 ### Github actions
 
 The project contains multiple Github workflow, including:
 
-- `black`, apply black formatter when a push or a pull request occurs
-- `coverage`, run code coverage and tests with pytest and coverage, then generate the coverage badge when a push or a pull request occurs
-- `interrogate`, apply interrogate (docstring coverage) and generate its badge when a push or a pull request occurs
-- `publish`, publish to PyPI once a release has been published (requires a `PYPI_API_TOKEN` secret)
+- `ci`, apply linting and run tests with `pytest` and `pytest-cov`
+- `draft`, draft a new release when a pull request are merged into "main" or "master"
+- `release`, create and update a latest tag pointing to your latest release, publish this release to PyPI index.
+- `submodules_update`, perform a `git pull` on every submodules, requires a `PAT_TOKEN` secret for checkout of private submodules
 - `pre_commit_auto_update`, run a `pre-commit autoupdate` every week and open a pull request if needed
-- `pr_code_quality`, apply `pre-commit` on modified files when a pull request occurs on "main", "master", "dev" or "release/\*"
 - `pr_description_enforcer`, enforce description on pull requests
-- `release_drafter`, draft a new release when a pull request are merged into "main" or "master"
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
 
-The generated badges are located in the `badges` folder, it contains the interrogate and the code coverage.
+Things you have to do in order to properly set up our project:
+
+- replace all references to `package` with the name of your project in the `pyproject.toml` and `README.md` files.
+- change your name in the `LICENSE` file.
+- set the code owners in the `.github` directory if necessary.
+- add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
+
+The generated badges are located in the `.github/assets/badges/` folder.
 
 ## Acknowledgements
 
@@ -49,24 +46,15 @@ The generated badges are located in the `badges` folder, it contains the interro
 
 **DELETE EVERYTHING ABOVE FOR YOUR PROJECT**
 
-______________________________________________________________________
+---
 
 <div align="center">
 
 # Your Project Name
 
-<a href="https://black.readthedocs.io/en/stable/">
-    <img alt="Black" src="https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray"/>
-</a>
-<a href="https://github.com/pre-commit/pre-commit">
-    <img alt="Pre-commit" src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit&logoColor=white"/>
-</a>
-<a href="https://interrogate.readthedocs.io/en/latest/#">
-    <img alt="Interrogate" src="./badges/interrogate_badge.svg"/>
-</a>
-<a href="https://coverage.readthedocs.io/en/latest/#">
-    <img alt="Coverage" src="./badges/coverage_badge.svg"/>
-</a>
+[![CI](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VDuchauffour/python-package-template/actions?query=workflow%3Aci+branch%3Amain)
+[![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/)
+[![codecov](https://codecov.io/gh/VDuchauffour/python-package-template/branch/main/graph/badge.svg)](https://codecov.io/gh/VDuchauffour/python-package-template)
 
 </div>
 

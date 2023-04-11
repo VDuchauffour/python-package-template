@@ -11,88 +11,12 @@ repos:
       - id: check-executables-have-shebangs
       - id: check-case-conflict
       - id: check-added-large-files
-  # Python code formatter
-  - repo: https://github.com/psf/black
-    rev: 23.1.0
-    hooks:
-      - id: black
-        args: ["--config", "pyproject.toml"]
-  # Python's import formatter
-  - repo: https://github.com/PyCQA/isort
-    rev: 5.12.0
-    hooks:
-      - id: isort
-        args: ["--profile", "black", "--filter-files"]
-  # Automatically upgrade syntax for newer versions of Python language
-  - repo: https://github.com/asottile/pyupgrade
-    rev: v3.3.1
-    hooks:
-      - id: pyupgrade
-        args: [--py310-plus]
-  # Automatically remove unused builtins imports and variables
-  - repo: https://github.com/PyCQA/autoflake
-    rev: v2.0.1
-    hooks:
-      - id: autoflake
-  # Python check (PEP8), programming errors and code complexity
-  - repo: https://github.com/PyCQA/flake8
-    rev: 6.0.0
-    hooks:
-      - id: flake8
-        args: ["--append-config", ".flake8"]
-  # Python security linter
-  - repo: https://github.com/PyCQA/bandit
-    rev: "1.7.4"
-    hooks:
-      - id: bandit
-        args: ["-c", "pyproject.toml"]
-        additional_dependencies: ["bandit[toml]"]
-  # Python tool for docstring coverage
-  - repo: https://github.com/econchick/interrogate
-    rev: 1.5.0
-    hooks:
-      - id: interrogate
-        args:
-          [
-            "--config",
-            "pyproject.toml",
-            "--generate-badge",
-            "./badges",
-            "--badge-style",
-            "flat",
-          ]
-        pass_filenames: false
-  # Python tool for docstring style checker
-  - repo: https://github.com/pycqa/pydocstyle
-    rev: 6.3.0
-    hooks:
-      - id: pydocstyle
-        args:
-          [
-            "--ignore",
-            "D100,D200,D202,D203,D205,D212,D400,D401,D406,D407,D413,D415",
-            "--match-dir",
-            "^(?!\\..*|test).*",
-          ]
-        additional_dependencies: ["tomli"]
-        exclude: "tests"
   # Formatter for Json and Yaml files
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.0-alpha.6
     hooks:
       - id: prettier
         types: [json, yaml, toml]
-  # Formatter for shell scripts
-  - repo: https://github.com/scop/pre-commit-shfmt
-    rev: v3.6.0-1
-    hooks:
-      - id: shfmt
-  # Linter for shell scripts
-  - repo: https://github.com/shellcheck-py/shellcheck-py
-    rev: v0.9.0.2
-    hooks:
-      - id: shellcheck
-        args: ["--exclude", "1090"]
   # Formatter for markdown files
   - repo: https://github.com/executablebooks/mdformat
     rev: 0.7.16
@@ -105,3 +29,42 @@ repos:
           - mdformat-frontmatter
           - mdformat-black
           - mdformat-shfmt
+  # Python code formatter
+  - repo: https://github.com/psf/black
+    rev: 23.3.0
+    hooks:
+      - id: black
+        args: ["--config", "pyproject.toml"]
+  # Python's import formatter
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+  # Formats docstrings to follow PEP 257
+  - repo: https://github.com/PyCQA/docformatter
+    rev: v1.6.0
+    hooks:
+      - id: docformatter
+        additional_dependencies: [tomli]
+        args: ["--in-place", "--config", "pyproject.toml"]
+  # Python tool for docstring coverage
+  - repo: https://github.com/econchick/interrogate
+    rev: 1.5.0
+    hooks:
+      - id: interrogate
+        args:
+          [
+            "--config",
+            "pyproject.toml",
+            "--generate-badge",
+            ".github/assets/badges",
+            "--badge-style",
+            "flat",
+          ]
+        pass_filenames: false
+  # An extremely fast Python linter, written in Rust
+  - repo: https://github.com/charliermarsh/ruff-pre-commit
+    rev: "v0.0.261"
+    hooks:
+      - id: ruff
+        args: ["--fix"]
