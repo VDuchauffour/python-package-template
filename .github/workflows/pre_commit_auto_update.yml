@@ -4,10 +4,11 @@ permissions:
   contents: write
   pull-requests: write
 on:
-  # every sunday at midnight
+  # At 00:00 on the 1st of every month.
   schedule:
-    - cron: "0 0 * * 0"
+    - cron: "0 0 1 * *"
   workflow_dispatch:
+
 jobs:
   pre-commit-auto-update:
     runs-on: ubuntu-latest
@@ -20,7 +21,11 @@ jobs:
         run: pip install pre-commit
       - name: Run pre-commit
         run: pre-commit autoupdate
-      - uses: peter-evans/create-pull-request@v4
+      - name: Set git config
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+      - uses: peter-evans/create-pull-request@v5
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           branch: update/pre-commit-hooks
