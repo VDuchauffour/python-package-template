@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "package"
 description = ""
 readme = "README.md"
-authors = [{ name = "", email = "" }]
+authors = [{ name = "", email = "package@package.com" }]
 license = { file = "LICENSE" }
 keywords = []
 classifiers = []
