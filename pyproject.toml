@@ -17,7 +17,7 @@ dynamic = ["dependencies", "optional-dependencies", "version"]
 version = { attr = "package._version.__version__" }
 
 [tool.setuptools.dynamic.dependencies]
-file = ["requirements-dev.txt"]
+file = ["requirements.txt"]
 
 [tool.setuptools.dynamic.optional-dependencies]
 dev = { file = ["requirements-dev.txt"] }
