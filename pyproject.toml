@@ -1,5 +1,5 @@
 [build-system]
-requires = ["setuptools", "wheel"]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2", "wheel"]
 build-backend = "setuptools.build_meta"
 
 [project]
@@ -13,8 +13,8 @@ classifiers = []
 requires-python = ">=3.9"
 dynamic = ["dependencies", "optional-dependencies", "version"]
 
-[tool.setuptools.dynamic]
-version = { attr = "package._version.__version__" }
+[tool.setuptools_scm]
+write_to = "package/_version.py"
 
 [tool.setuptools.dynamic.dependencies]
 file = ["requirements.txt"]
