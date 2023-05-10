@@ -1,20 +1,25 @@
 <div align="center">
 
-# Python-Package-Template
-
-[![CI](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VDuchauffour/python-package-template/actions?query=workflow%3Aci+branch%3Amain)
-[![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/)
+# Python Package Template
 
 _Lightweight template for Python package_
 
 </div>
+
+## How to complete to setup your project
+
+Things you have to do in order to properly set up our project:
+
+- replace all references of `package` with the corresponding name of your project in the `pyproject.toml` and `README.md` files.
+- change your name in the `LICENSE` file.
+- set the code owners in the `.github` directory if necessary.
+- add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
 
 ## About this template
 
 This project provide a flexible and lightweight Python package template. It includes the following components:
 
 - a `pyproject.toml` file which define the configuration of the dependencies. The specifications defined by PEP 621 of project metadata are stored in this file.
-- a `requirements.txt` file which contains dependencies.
 - a `requirements-dev.txt` file which contains development dependencies.
 - a `.pre-commit-config.yaml` pipeline which apply the same dependencies
 
@@ -23,19 +28,13 @@ This project provide a flexible and lightweight Python package template. It incl
 The project contains multiple Github workflow, including:
 
 - `ci`, apply linting and run tests with `pytest` and `pytest-cov`.
-- `draft`, draft a new release when a pull request are merged into "main" or "master".
-- `release`, create and update a latest tag pointing to your latest release, publish this release to PyPI index.
-- `pre_commit_auto_update`, run a `pre-commit autoupdate` every week and open a pull request if needed.
-- `pr_description_enforcer`, enforce description on pull requests.
+- `draft`, draft a new release when a commit is pushed on branch `main` or `master` given its config file located at `.github/release-drafter.yml`.
+- `release`, build the package with `cibuildwheel` when a release is published and upload it to the PyPI index.
+- `pre_commit_auto_update`, run a `pre-commit autoupdate` every month and open a pull request if needed.
+- `pr_description_enforcer`, enforce description on pull requests, otherwise close the pull request.
+- `pr_labeler`, apply a corresponding label on a pull request given its config file located at `.github/pr-labeler.yml`
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
-
-Things you have to do in order to properly set up our project:
-
-- replace all references to `package` with the name of your project in the `pyproject.toml` and `README.md` files.
-- change your name in the `LICENSE` file.
-- set the code owners in the `.github` directory if necessary.
-- add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
 
 The generated badges are located in the `.github/assets/badges/` folder.
 
@@ -45,45 +44,55 @@ The generated badges are located in the `.github/assets/badges/` folder.
 
 **DELETE EVERYTHING ABOVE FOR YOUR PROJECT**
 
----
+______________________________________________________________________
 
 <div align="center">
 
 # Your Project Name
 
-[![CI](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml/badge.svg?branch=main)](https://github.com/VDuchauffour/python-package-template/actions?query=workflow%3Aci+branch%3Amain)
-[![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/)
-[![codecov](https://codecov.io/gh/VDuchauffour/python-package-template/branch/main/graph/badge.svg)](https://codecov.io/gh/VDuchauffour/python-package-template)
+|         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
+| ------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| CI/CD   | [![CI Pipeline](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml/badge.svg)](https://github.com/VDuchauffour/python-package-template/actions/workflows/ci.yml) [![Release](https://github.com/VDuchauffour/python-package-template/actions/workflows/release.yml/badge.svg)](https://github.com/VDuchauffour/python-package-template/actions/workflows/release.yml)[![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/) [![codecov](https://codecov.io/gh/VDuchauffour/python-package-template/branch/main/graph/badge.svg)](https://codecov.io/gh/VDuchauffour/python-package-template) |
+| Package | [![PyPI - Version](https://img.shields.io/pypi/v/package.svg?logo=pypi&label=PyPI&logoColor=gold)](https://pypi.org/project/package/) [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/package.svg?logo=python&label=Python&logoColor=gold)](https://pypi.org/project/package/)                                                                                                                                                                                                                                                                                                                                                                                  |
+| Meta    | [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v0.json)](https://github.com/charliermarsh/ruff) [![code style - Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit) [![License](https://img.shields.io/github/license/VDuchauffour/python-package-template?color=blueviolet)](https://spdx.org/licenses/)                                                                                                   |
 
 </div>
 
-## Description
+______________________________________________________________________
+
+## About this project
 
 My description
 
 ## Installation
 
+Install the package from the PyPI registry.
+
+```shell
+pip install package
+```
+
 Install the package from the latest commit of the repository.
 
 ```shell
-pip install git+https://github.com/Username/Repo
+pip install git+https://github.com/VDuchauffour/python-package-template
 ```
 
 ## Development
 
-Clone project
+Clone the project
 
 ```shell
-git clone https://github.com/Username/Repo
+git clone https://github.com/VDuchauffour/python-package-template
 ```
 
-Install development requirements
+In order to install all development dependencies, run the following command:
 
 ```shell
-pip install -r requirements-dev.txt
+pip install -e ".[dev]"
 ```
 
-Install pre-commit hooks
+To ensure that you follow the development workflow, please setup the pre-commit hooks:
 
 ```shell
 pre-commit install

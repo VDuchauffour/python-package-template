@@ -4,18 +4,18 @@ on:
   pull_request:
     types: [opened, edited, reopened]
 
+permissions: write-all
+
 jobs:
   enforce:
     runs-on: ubuntu-latest
-    permissions: write-all
     steps:
       - uses: dekinderfiets/pr-description-enforcer@0.0.1
         with:
-          repo-token: "${{ secrets.GITHUB_TOKEN }}"
+          repo-token: ${{ github.token }}
 
   close-pr:
     runs-on: ubuntu-latest
-    permissions: write-all
     needs: [enforce]
     if: always() && (needs.enforce.result == 'failure')
     steps:

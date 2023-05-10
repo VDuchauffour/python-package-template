@@ -31,10 +31,6 @@ clean-misc:
 	rm -rf .ruff_cache/
 	rm -rf .mypy_cache/
 
-# builds source and wheel package
-dist: clean
-	python -m build
-
 # lint the package
 lint:
 	black --check .

@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 concurrency:
-  group: ${{ github.workflow }} @ ${{ github.event.pull_request.head.label || github.head_ref || github.ref }}
+  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
   cancel-in-progress: true
 
 permissions:
@@ -20,17 +20,18 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
           python-version: "3.10"
       - name: Install dependencies
-        run: pip install -r requirements-dev.txt
+        run: pip install -U black isort ruff
       - name: Run linting
         run: |
-          make lint
+          black --check .
+          isort --check .
+          ruff check .
+
   tests:
     name: Run tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
     needs: lint
@@ -42,23 +43,17 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        with:
-          fetch-depth: 0
       - name: Setup Python ${{ matrix.python-version }}
         uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
-          cache: "pip"
-          cache-dependency-path: |
-            pyproject.toml
-            requirements-dev.txt
       - name: Install dependencies
         run: |
-          pip install -U pip 
+          pip install -U pip
           pip install ".[dev]"
       - name: Run tests
         run: |
-          make test
+          pytest -vv
       - name: Upload code coverage as artifact
         uses: actions/upload-artifact@v3
         with:
