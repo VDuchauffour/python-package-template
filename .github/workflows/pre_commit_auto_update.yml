@@ -27,8 +27,9 @@ jobs:
           git config --local user.name "GitHub Action"
       - uses: peter-evans/create-pull-request@v5
         with:
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ github.token }}
           branch: update/pre-commit-hooks
           title: Update pre-commit hooks
           commit-message: "Update pre-commit hooks"
           body: Update versions of pre-commit hooks to latest version.
+          labels: "dependencies,github_actions"
