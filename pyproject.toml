@@ -13,6 +13,12 @@ classifiers = []
 requires-python = ">=3.9"
 dynamic = ["dependencies", "optional-dependencies", "version"]
 
+[project.urls]
+Homepage = "https://github.com/VDuchauffour/python-package-template"
+Source = "https://github.com/VDuchauffour/python-package-template"
+Documentation = "https://github.com/VDuchauffour/python-package-template"
+Tracker = "https://github.com/VDuchauffour/python-package-template/issues"
+
 [tool.setuptools_scm]
 write_to = "src/package/_version.py"
 
