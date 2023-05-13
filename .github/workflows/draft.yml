@@ -1,5 +1,6 @@
 # Drafts the next Release notes as Pull Requests are merged (or commits are pushed) into "main" or "master"
 name: Draft next release
+
 on:
   push:
     branches: [main, "master"]

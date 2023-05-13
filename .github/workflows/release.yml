@@ -1,6 +1,7 @@
 # Create & update a latest tag pointing to your latest release
 # Then publish to PyPI with this latest release
 name: Release
+
 on:
   release:
     types:

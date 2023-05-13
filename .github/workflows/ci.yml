@@ -1,5 +1,6 @@
 # Apply linting and testing
 name: CI Pipeline
+
 on:
   push:
   pull_request:
