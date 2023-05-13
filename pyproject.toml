@@ -14,7 +14,7 @@ requires-python = ">=3.9"
 dynamic = ["dependencies", "optional-dependencies", "version"]
 
 [tool.setuptools_scm]
-write_to = "package/_version.py"
+write_to = "src/package/_version.py"
 
 [tool.setuptools.dynamic.dependencies]
 file = ["requirements.txt"]
@@ -23,7 +23,7 @@ file = ["requirements.txt"]
 dev = { file = ["requirements-dev.txt"] }
 
 [tool.setuptools.packages.find]
-include = ["package", "package.*"]
+where = ["src"]
 
 [tool.ruff]
 select = [
