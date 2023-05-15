@@ -1,4 +1,4 @@
-.PHONY: clean clean-build clean-pyc clean-test clean-misc dist lint test
+.PHONY: clean clean-build clean-pyc clean-test clean-misc lint test
 
 # remove all build, test, coverage and Python artifacts
 clean: clean-build clean-pyc clean-test clean-misc
