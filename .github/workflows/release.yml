@@ -26,22 +26,7 @@ jobs:
           pip install -U pip setuptools build
       - name: Clean remaining artifacts
         run: |
-          rm -fr build/
-          rm -fr dist/
-          rm -fr .eggs/
-          find . -name '*.egg-info' -exec rm -fr {} +
-          find . -name '*.egg' -exec rm -f {} +
-          find . -name '*.pyc' -exec rm -f {} +
-          find . -name '*.pyo' -exec rm -f {} +
-          find . -name '*~' -exec rm -f {} +
-          find . -name '__pycache__' -exec rm -fr {} +
-          rm -f .coverage
-          rm -f coverage.xml
-          rm -rf htmlcov/
-          rm -rf .tox/
-          rm -rf .pytest_cache/
-          rm -rf .ruff_cache/
-          rm -rf .mypy_cache/
+          make clean
       - name: Build source distribution
         run: |
           python -m build --sdist
@@ -65,22 +50,7 @@ jobs:
         uses: actions/setup-python@v4
       - name: Clean remaining artifacts
         run: |
-          rm -fr build/
-          rm -fr dist/
-          rm -fr .eggs/
-          find . -name '*.egg-info' -exec rm -fr {} +
-          find . -name '*.egg' -exec rm -f {} +
-          find . -name '*.pyc' -exec rm -f {} +
-          find . -name '*.pyo' -exec rm -f {} +
-          find . -name '*~' -exec rm -f {} +
-          find . -name '__pycache__' -exec rm -fr {} +
-          rm -f .coverage
-          rm -f coverage.xml
-          rm -rf htmlcov/
-          rm -rf .tox/
-          rm -rf .pytest_cache/
-          rm -rf .ruff_cache/
-          rm -rf .mypy_cache/
+          make clean
       - name: Install dependencies
         run: |
           pip install -U pip cibuildwheel
