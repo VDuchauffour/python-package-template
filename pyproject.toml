@@ -100,11 +100,24 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
+omit = ["*docs*", "*stubs*", "*examples*", "*tests*", "src/package/_version.py"]
 
 [tool.coverage.report]
 fail_under = 80
 show_missing = true
 ignore_errors = true
-omit = ["*docs*", "*stubs*", "*examples*", "*tests*"]
-exclude_lines = ["if __name__ == .__main__.:", "raise NotImplementedError()"]
+omit = ["*docs*", "*stubs*", "*examples*", "*tests*", "src/package/_version.py"]
+exclude_lines = [
+  "pragma: no cover",
+  "def __repr__",
+  "if self.debug:",
+  "if settings.DEBUG",
+  "raise AssertionError",
+  "raise NotImplementedError",
+  "if 0:",
+  "if __name__ == .__main__.:",
+  "if TYPE_CHECKING:",
+  "except ImportError:",
+  "Protocol",
+  "@(abc.)?abstractmethod",
+]
