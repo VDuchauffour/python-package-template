@@ -38,11 +38,8 @@ jobs:
 
   wheels:
     needs: sdist
-    name: Build wheels on ${{ matrix.os }}
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [windows-latest, ubuntu-latest, macOS-latest]
+    name: Build wheel
+    runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -53,21 +50,48 @@ jobs:
           make clean
       - name: Install dependencies
         run: |
-          pip install -U pip cibuildwheel
+          pip install -U pip build wheel
       - name: Build package
-        uses: pypa/cibuildwheel@v2.12.3
-        env:
-          CIBW_ARCHS_LINUX: "native"
-          CIBW_ARCHS_MACOS: "native"
-          CIBW_ARCHS_WINDOWS: "native"
-          CIBW_BUILD: cp39-* cp310-* cp311-*
-          CIBW_SKIP: pp*
-          CIBW_BUILD_VERBOSITY: 3
+        run: |
+          python -m build --wheel --outdir wheelhouse
       - name: Upload wheels as artifact
         uses: actions/upload-artifact@v3
         with:
           name: wheels
           path: wheelhouse/
+
+  # wheels:
+  #   needs: sdist
+  #   name: Build wheels on ${{ matrix.os }}
+  #   runs-on: ${{ matrix.os }}
+  #   strategy:
+  #     matrix:
+  #       os: [windows-latest, ubuntu-latest, macOS-latest]
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v3
+  #     - name: Set up Python
+  #       uses: actions/setup-python@v4
+  #     - name: Clean remaining artifacts
+  #       run: |
+  #         make clean
+  #     - name: Install dependencies
+  #       run: |
+  #         pip install -U pip cibuildwheel
+  #     - name: Build package
+  #       uses: pypa/cibuildwheel@v2.12.3
+  #       env:
+  #         CIBW_ARCHS_LINUX: "native"
+  #         CIBW_ARCHS_MACOS: "native"
+  #         CIBW_ARCHS_WINDOWS: "native"
+  #         CIBW_BUILD: cp39-* cp310-* cp311-*
+  #         CIBW_SKIP: pp*
+  #         CIBW_BUILD_VERBOSITY: 3
+  #     - name: Upload wheels as artifact
+  #       uses: actions/upload-artifact@v3
+  #       with:
+  #         name: wheels
+  #         path: wheelhouse/
 
   publish:
     needs: [sdist, wheels]
