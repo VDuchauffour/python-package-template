@@ -7,6 +7,7 @@ clean: clean-build clean-pyc clean-test clean-misc
 clean-build:
 	rm -fr build/
 	rm -fr dist/
+	rm -fr wheelhouse/
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
 	find . -name '*.egg' -exec rm -f {} +
