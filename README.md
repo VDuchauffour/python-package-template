@@ -12,6 +12,7 @@ Things you have to do in order to properly set up our project:
 
 - replace all references of `package_name` with the corresponding value of your project in the `pyproject.toml`, `src` folder and `README.md` files.
 - replace all references of `owner_name` with the corresponding value of your project in the `pyproject.toml`.
+- setup the corresponding Python versions in the `pyproject.toml` and `.github/workflows/ci.yml` files
 - uncomment the necessary `wheels` part in `.github/workflows/release.yml`. If you choose the cibuildwheel (which only works if the build of your project is platform related, e.g. if it has C or C++ extensions) you may need to set Python versions used for the build.
 - set the code owners in the `.github` directory if necessary.
 - add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
