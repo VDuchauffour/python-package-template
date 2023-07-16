@@ -14,10 +14,10 @@ requires-python = ">=3.9"
 dynamic = ["dependencies", "optional-dependencies", "version"]
 
 [project.urls]
-Homepage = "https://github.com/VDuchauffour/python-package-template"
-Source = "https://github.com/VDuchauffour/python-package-template"
-Documentation = "https://github.com/VDuchauffour/python-package-template"
-Tracker = "https://github.com/VDuchauffour/python-package-template/issues"
+Homepage = "https://github.com/owner_name/package_name"
+Source = "https://github.com/owner_name/package_name"
+Documentation = "https://github.com/owner_name/package_name"
+Tracker = "https://github.com/owner_name/package_name/issues"
 
 [tool.setuptools_scm]
 write_to = "src/package_name/_version.py"
