@@ -67,7 +67,7 @@ ______________________________________________________________________
 
 My description
 
-## Installation
+## ️️⚙️ Installation
 
 Install the package from the PyPI registry.
 
@@ -81,7 +81,17 @@ Install the package from the latest commit of the repository.
 pip install git+https://github.com/owner_name/package_name
 ```
 
-## Development
+## ⚡ Usage
+
+### Example
+
+```python
+from package_name import foo
+```
+
+Insert example usage here.
+
+## ⛏️ Development
 
 Clone the project
 

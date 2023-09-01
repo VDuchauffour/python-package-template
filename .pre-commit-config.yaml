@@ -15,18 +15,18 @@ repos:
       - id: check-added-large-files
       - id: detect-aws-credentials
       - id: detect-private-key
-  # Formatter for Json and Yaml files
+  # Formatter for Json, Yaml and Toml files
   - repo: https://github.com/pre-commit/mirrors-prettier
     rev: v3.0.3
     hooks:
       - id: prettier
-        types: [json, yaml, toml]
+        types: [ json, yaml, toml ]
   # Formatter for markdown files
   - repo: https://github.com/executablebooks/mdformat
     rev: 0.7.17
     hooks:
       - id: mdformat
-        args: ["--number"]
+        args: [ "--number" ]
         additional_dependencies:
           - mdformat-gfm
           - mdformat-tables
@@ -38,13 +38,13 @@ repos:
     rev: "v0.0.286"
     hooks:
       - id: ruff
-        args: [--fix, --exit-non-zero-on-fix]
+        args: [ --fix, --exit-non-zero-on-fix ]
   # Python code formatter
   - repo: https://github.com/psf/black
     rev: 23.7.0
     hooks:
       - id: black
-        args: ["--config", "pyproject.toml"]
+        args: [ "--config", "pyproject.toml" ]
   # Python's import formatter
   - repo: https://github.com/PyCQA/isort
     rev: 5.12.0
@@ -55,8 +55,8 @@ repos:
     rev: v1.7.5
     hooks:
       - id: docformatter
-        additional_dependencies: [tomli]
-        args: ["--in-place", "--config", "pyproject.toml"]
+        additional_dependencies: [ tomli ]
+        args: [ "--in-place", "--config", "pyproject.toml" ]
   # Python tool for docstring coverage
   - repo: https://github.com/econchick/interrogate
     rev: 1.5.0
@@ -69,6 +69,6 @@ repos:
             "--generate-badge",
             ".github/assets/badges",
             "--badge-style",
-            "flat",
+            "flat"
           ]
         pass_filenames: false
