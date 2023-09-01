@@ -17,13 +17,13 @@ repos:
       - id: detect-private-key
   # Formatter for Json and Yaml files
   - repo: https://github.com/pre-commit/mirrors-prettier
-    rev: v3.0.0-alpha.9-for-vscode
+    rev: v3.0.3
     hooks:
       - id: prettier
         types: [json, yaml, toml]
   # Formatter for markdown files
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.16
+    rev: 0.7.17
     hooks:
       - id: mdformat
         args: ["--number"]
@@ -35,13 +35,13 @@ repos:
           - mdformat-shfmt
   # An extremely fast Python linter, written in Rust
   - repo: https://github.com/charliermarsh/ruff-pre-commit
-    rev: "v0.0.270"
+    rev: "v0.0.286"
     hooks:
       - id: ruff
         args: [--fix, --exit-non-zero-on-fix]
   # Python code formatter
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.7.0
     hooks:
       - id: black
         args: ["--config", "pyproject.toml"]
@@ -52,7 +52,7 @@ repos:
       - id: isort
   # Formats docstrings to follow PEP 257
   - repo: https://github.com/PyCQA/docformatter
-    rev: v1.7.1
+    rev: v1.7.5
     hooks:
       - id: docformatter
         additional_dependencies: [tomli]
