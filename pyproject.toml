@@ -48,6 +48,8 @@ select = [
     "UP",
     # pep8-naming
     "N",
+    # isort
+    "I001",
 ]
 # Error E501 (Line too long) is ignored because of docstrings.
 ignore = [
@@ -71,17 +73,15 @@ force-exclude = true
 [tool.ruff.pydocstyle]
 convention = "google"
 
+[tool.ruff.isort]
+known-first-party = ["package_name", "package_name.*"]
+
 [tool.mypy]
 ignore_missing_imports = true
 
 [tool.black]
 preview = true
 target-version = ['py39', 'py310', 'py311']
-
-[tool.isort]
-profile = "black"
-filter_files = true
-known_first_party = ["package_name", "package_name.*"]
 
 [tool.docformatter]
 close-quotes-on-newline = true # D209
@@ -100,25 +100,37 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 branch = true
-omit = ["*docs*", "*stubs*", "*examples*", "*tests*", "src/package_name/_version.py"]
+omit = [
+    "*docs*",
+    "*stubs*",
+    "*examples*",
+    "*tests*",
+    "src/package_name/_version.py",
+]
 
 [tool.coverage.report]
 fail_under = 80
 show_missing = true
 ignore_errors = true
-omit = ["*docs*", "*stubs*", "*examples*", "*tests*", "src/package_name/_version.py"]
+omit = [
+    "*docs*",
+    "*stubs*",
+    "*examples*",
+    "*tests*",
+    "src/package_name/_version.py",
+]
 exclude_lines = [
-  "pragma: no cover",
-  "def __repr__",
-  "if self.debug:",
-  "if settings.DEBUG",
-  "raise AssertionError",
-  "raise NotImplementedError",
-  "if 0:",
-  "if __name__ == .__main__.:",
-  "if TYPE_CHECKING:",
-  "except ImportError:",
-  "Protocol",
-  "@(abc.)?abstractmethod",
-  "ModuleNotFoundError",
+    "pragma: no cover",
+    "def __repr__",
+    "if self.debug:",
+    "if settings.DEBUG",
+    "raise AssertionError",
+    "raise NotImplementedError",
+    "if 0:",
+    "if __name__ == .__main__.:",
+    "if TYPE_CHECKING:",
+    "except ImportError:",
+    "Protocol",
+    "@(abc.)?abstractmethod",
+    "ModuleNotFoundError",
 ]
