@@ -53,11 +53,65 @@ ______________________________________________________________________
 
 # Your Project Name
 
-|         |                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     |
-| ------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| CI/CD   | [![CI Pipeline](https://github.com/owner_name/package_name/actions/workflows/ci.yml/badge.svg)](https://github.com/owner_name/package_name/actions/workflows/ci.yml) [![Release](https://github.com/owner_name/package_name/actions/workflows/release.yml/badge.svg)](https://github.com/owner_name/package_name/actions/workflows/release.yml) [![interrogate](.github/assets/badges/interrogate_badge.svg)](https://interrogate.readthedocs.io/en/latest/) [![codecov](https://codecov.io/gh/owner_name/package_name/branch/main/graph/badge.svg)](https://codecov.io/gh/owner_name/package_name) |
-| Meta    | [![linting - Ruff](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json)](https://github.com/astral-sh/ruff) [![code style - Black](https://img.shields.io/badge/code%20style-black-000000.svg)](https://github.com/psf/black) [![pre-commit](https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit)](https://github.com/pre-commit/pre-commit) [![License](https://img.shields.io/github/license/owner_name/package_name?color=blueviolet)](https://spdx.org/licenses/)                                       |
-| Package | [![PyPI - Python Version](https://img.shields.io/pypi/pyversions/package_name.svg?logo=python&label=Python&logoColor=gold)](https://pypi.org/project/package_name/) [![PyPI - Version](https://img.shields.io/pypi/v/package_name.svg?logo=pypi&label=PyPI&logoColor=gold)](https://pypi.org/project/package_name/)                                                                                                                                                                                                                                                                                 |
+<table>
+  <tr>
+    <td>
+    </td>
+    <td>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      CI/CD
+    </td>
+    <td>
+      <a href="https://github.com/owner_name/package_name/actions/workflows/ci.yml">
+        <img src="https://github.com/owner_name/package_name/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline">
+      </a>
+      <a href="https://github.com/owner_name/package_name/actions/workflows/release.yml">
+        <img src="https://github.com/owner_name/package_name/actions/workflows/release.yml/badge.svg" alt="Release">
+      </a>
+      <a href="https://interrogate.readthedocs.io/en/latest/">
+        <img src=".github/assets/badges/interrogate_badge.svg" alt="Interrogate">
+      </a>
+      <a href="https://codecov.io/gh/owner_name/package_name">
+        <img src="https://codecov.io/gh/owner_name/package_name/branch/main/graph/badge.svg" alt="Codecov">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        Meta
+    </td>
+    <td>
+      <a href="https://github.com/astral-sh/ruff">
+        <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json" alt="Ruff">
+      </a>
+      <a href="https://github.com/psf/black">
+        <img src="https://img.shields.io/badge/code%20style-black-000000.svg" alt="Black">
+      </a>
+      <a href="https://github.com/pre-commit/pre-commit">
+        <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="Pre-commit">
+      </a>
+      <a href="https://spdx.org/licenses/">
+        <img src="https://img.shields.io/github/license/owner_name/package_name?color=blueviolet" alt="License">
+      </a>
+    </td>
+  </tr>
+  <tr>
+    <td>
+        Package
+    </td>
+    <td>
+      <a href="https://pypi.org/project/package_name/">
+        <img src="https://img.shields.io/pypi/pyversions/package_name.svg?logo=python&label=Python&logoColor=gold" alt="PyPI - Python version">
+      </a>
+      <a href="https://pypi.org/project/package_name/">
+        <img src="https://img.shields.io/pypi/v/package_name.svg?logo=pypi&label=PyPI&logoColor=gold" alt="PyPI - Version">
+      </a>
+    </td>
+  </tr>
+</table>
 
 </div>
 
