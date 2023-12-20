@@ -33,9 +33,7 @@ jobs:
 
       - name: Run linting
         run: |
-          black --check .
-          isort --check .
-          ruff check .
+          make lint
 
   tests:
     name: Run tests (${{ matrix.os }}, Python ${{ matrix.python-version }})

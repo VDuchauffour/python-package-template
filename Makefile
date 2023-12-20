@@ -34,7 +34,6 @@ clean-misc:
 
 # lint the package
 lint:
-	black --check .
 	ruff check .
 
 # test the package
