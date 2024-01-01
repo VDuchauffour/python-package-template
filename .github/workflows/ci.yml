@@ -63,7 +63,7 @@ jobs:
         run: |
           pytest -vv
       - name: Upload code coverage as artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: html-coverage-report
           path: htmlcov
