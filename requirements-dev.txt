@@ -1,6 +1,5 @@
 pre-commit
-black
-ruff
+ruff==0.1.8
 mypy
 pyright
 docformatter
