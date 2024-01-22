@@ -10,6 +10,7 @@ bug:
   - "fix/*"
   - "fixes-*"
   - "fix-*"
+  - "bugs/*"
   - "bugs-*"
   - "bug-*"
 chore:
