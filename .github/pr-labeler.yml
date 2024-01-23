@@ -21,3 +21,5 @@ chore:
 dependencies:
   - "update/*"
   - "update-*"
+  - "bump/*"
+  - "bump-*"
