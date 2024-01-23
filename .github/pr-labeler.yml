@@ -16,8 +16,6 @@ bug:
 chore:
   - "chore/*"
   - "chore-*"
-  - "update/*"
-  - "update-*"
 dependencies:
   - "update/*"
   - "update-*"
