@@ -35,6 +35,7 @@ clean-misc:
 # lint the package
 lint:
 	ruff check .
+	ruff format --check .
 
 # test the package
 test: clean-test
