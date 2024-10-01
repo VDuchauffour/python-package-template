@@ -1,6 +1,6 @@
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v4.6.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -34,7 +34,7 @@ repos:
           - mdformat-shfmt
   # An extremely fast Python linter, written in Rust
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.1.9
+    rev: v0.6.8
     hooks:
       # Run the linter
       - id: ruff
@@ -50,7 +50,7 @@ repos:
         args: [ "--in-place", "--config", "pyproject.toml" ]
   # Python tool for docstring coverage
   - repo: https://github.com/econchick/interrogate
-    rev: 1.5.0
+    rev: 1.7.0
     hooks:
       - id: interrogate
         args:
