@@ -3,7 +3,9 @@ name: Draft next release
 
 on:
   push:
-    branches: [main, "master"]
+    branches:
+      - main
+      - master
 
 permissions:
   contents: read

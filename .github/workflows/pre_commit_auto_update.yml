@@ -4,7 +4,7 @@ name: Pre-commit auto-update
 on:
   # At 00:00 on the 1st of every month.
   schedule:
-    - cron: "0 0 1 * *"
+    - cron: 0 0 1 * *
   workflow_dispatch:
 
 permissions:
@@ -32,6 +32,6 @@ jobs:
           token: ${{ github.token }}
           branch: update/pre-commit-hooks
           title: Update pre-commit hooks
-          commit-message: "Update pre-commit hooks"
+          commit-message: Update pre-commit hooks
           body: Update versions of pre-commit hooks to latest version.
-          labels: "dependencies,github_actions"
+          labels: dependencies,github_actions
