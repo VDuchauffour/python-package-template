@@ -1,5 +1,5 @@
 [project]
-name = "python-package-template"
+name = "repo-name"
 description = "Add your description here"
 readme = "README.md"
 license = { file = "LICENSE" }
@@ -11,8 +11,8 @@ version = "0.0.1"
 dependencies = []
 
 [project.urls]
-Homepage = "https://github.com/owner_name/package_name"
-Documentation = "https://github.com/owner_name/package_name"
+Homepage = "https://github.com/owner-name/repo-name"
+Documentation = "https://github.com/owner-name/repo-name"
 
 [dependency-groups]
 dev = [

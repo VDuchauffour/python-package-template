@@ -10,10 +10,9 @@ _Lightweight template for Python package._
 
 Things you have to do in order to properly set up our project:
 
-- replace all references of `package_name` with the corresponding value of your project in the `pyproject.toml`, `src` folder and `README.md` files.
-- replace all references of `owner_name` with the corresponding value of your project in the `pyproject.toml` and `README.md` files.
-- setup the corresponding Python versions in the `pyproject.toml` and `.github/workflows/ci.yml` files
-- uncomment the necessary `wheels` part in `.github/workflows/release.yml`. If you choose the cibuildwheel (which only works if the build of your project is platform related, e.g. if it has C or C++ extensions) you may need to set Python versions used for the build.
+- run `./setup.sh <repo-name> <package_name>` to replace all references of `repo-name` and `package_name` with the corresponding values
+- setup the corresponding Python versions in the `pyproject.toml`, `.pre-commit-config.yaml` and `.github/workflows/` files, defined to Python 3.12 by default
+- complete the metadata in `pyproject.toml` and `README.md`
 - set the code owners in the `.github` directory if necessary.
 - add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
 - change your name in the `LICENSE` file.
@@ -23,7 +22,6 @@ Things you have to do in order to properly set up our project:
 This project provide a flexible and lightweight Python package template. It includes the following components:
 
 - a `pyproject.toml` file which define the configuration of the dependencies. The specifications defined by PEP 621 of project metadata are stored in this file.
-- a `requirements-dev.txt` file which contains development dependencies.
 - a `.pre-commit-config.yaml` pipeline which apply the same dependencies
 
 ### Github actions
@@ -65,17 +63,17 @@ ______________________________________________________________________
       CI/CD
     </td>
     <td>
-      <a href="https://github.com/owner_name/package_name/actions/workflows/ci.yml">
-        <img src="https://github.com/owner_name/package_name/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline">
+      <a href="https://github.com/owner-name/repo-name/actions/workflows/ci.yml">
+        <img src="https://github.com/owner-name/repo-name/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline">
       </a>
-      <a href="https://github.com/owner_name/package_name/actions/workflows/release.yml">
-        <img src="https://github.com/owner_name/package_name/actions/workflows/release.yml/badge.svg" alt="Release">
+      <a href="https://github.com/owner-name/repo-name/actions/workflows/release.yml">
+        <img src="https://github.com/owner-name/repo-name/actions/workflows/release.yml/badge.svg" alt="Release">
       </a>
       <a href="https://interrogate.readthedocs.io/en/latest/">
         <img src=".github/assets/badges/interrogate_badge.svg" alt="Interrogate">
       </a>
-      <a href="https://codecov.io/gh/owner_name/package_name">
-        <img src="https://codecov.io/gh/owner_name/package_name/branch/main/graph/badge.svg" alt="Codecov">
+      <a href="https://codecov.io/gh/owner-name/repo-name">
+        <img src="https://codecov.io/gh/owner-name/repo-name/branch/main/graph/badge.svg" alt="Codecov">
       </a>
     </td>
   </tr>
@@ -91,7 +89,7 @@ ______________________________________________________________________
         <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="Pre-commit">
       </a>
       <a href="https://spdx.org/licenses/">
-        <img src="https://img.shields.io/github/license/owner_name/package_name?color=blueviolet" alt="License">
+        <img src="https://img.shields.io/github/license/owner-name/repo-name?color=blueviolet" alt="License">
       </a>
     </td>
   </tr>
@@ -101,10 +99,10 @@ ______________________________________________________________________
     </td>
     <td>
       <a href="https://pypi.org/project/package_name/">
-        <img src="https://img.shields.io/pypi/pyversions/package_name.svg?logo=python&label=Python&logoColor=gold" alt="PyPI - Python version">
+        <img src="https://img.shields.io/pypi/pyversions/repo-name.svg?logo=python&label=Python&logoColor=gold" alt="PyPI - Python version">
       </a>
       <a href="https://pypi.org/project/package_name/">
-        <img src="https://img.shields.io/pypi/v/package_name.svg?logo=pypi&label=PyPI&logoColor=gold" alt="PyPI - Version">
+        <img src="https://img.shields.io/pypi/v/repo-name.svg?logo=pypi&label=PyPI&logoColor=gold" alt="PyPI - Version">
       </a>
     </td>
   </tr>
@@ -129,7 +127,7 @@ pip install package
 Install the package from the latest commit of the repository.
 
 ```shell
-pip install git+https://github.com/owner_name/package_name
+pip install git+https://github.com/owner-name/package_name
 ```
 
 ## ⚡ Usage
@@ -143,12 +141,6 @@ from package_name import foo
 Insert example usage here.
 
 ## ⛏️ Development
-
-Clone the project
-
-```shell
-git clone https://github.com/owner_name/package_name
-```
 
 In order to install all development dependencies, run the following command:
 
