@@ -1,40 +1,40 @@
-name-template: "$RESOLVED_VERSION"
-tag-template: "$RESOLVED_VERSION"
+name-template: $RESOLVED_VERSION
+tag-template: $RESOLVED_VERSION
 categories:
-  - title: "🚀 Features"
+  - title: 🚀 Features
     labels:
-      - "feature"
-      - "enhancement"
-  - title: "🐛 Bug Fixes"
+      - feature
+      - enhancement
+  - title: 🐛 Bug Fixes
     labels:
-      - "fix"
-      - "bugfix"
-      - "bug"
-  - title: "🧹 Maintenance"
+      - fix
+      - bugfix
+      - bug
+  - title: 🧹 Maintenance
     labels:
-      - "maintenance"
-      - "dependencies"
-      - "refactoring"
-      - "cosmetic"
-      - "chore"
-  - title: "📝️ Documentation"
+      - maintenance
+      - dependencies
+      - refactoring
+      - cosmetic
+      - chore
+  - title: 📝️ Documentation
     labels:
-      - "documentation"
-      - "docs"
-change-template: "- $TITLE (#$NUMBER)"
-change-title-escapes: '\<*_&' # You can add # and @ to disable mentions
+      - documentation
+      - docs
+change-template: '- $TITLE (#$NUMBER)'
+change-title-escapes: \<*_&   # You can add  # and @ to disable mentions
 version-resolver:
   major:
     labels:
-      - "major"
+      - major
   minor:
     labels:
-      - "minor"
+      - minor
   patch:
     labels:
-      - "patch"
+      - patch
   default: patch
-template: |
+template: |-
   ## Changes
 
   $CHANGES
