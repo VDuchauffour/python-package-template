@@ -10,7 +10,7 @@ _Lightweight template for Python package._
 
 Things you have to do in order to properly set up our project:
 
-- run `./setup.sh <repo-name> <package_name>` to replace all references of `repo-name` and `package_name` with the corresponding values
+- run `./setup.sh <owner> <repo-name> <package_name>` to replace all references of `owner-name`, `repo-name` and `package_name` with the corresponding values
 - setup the corresponding Python versions in the `pyproject.toml`, `.pre-commit-config.yaml` and `.github/workflows/` files, defined to Python 3.12 by default
 - complete the metadata in `pyproject.toml` and `README.md`
 - set the code owners in the `.github` directory if necessary.
