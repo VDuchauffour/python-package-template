@@ -38,7 +38,6 @@ replace_in_file "s/repo-name/${REPO_NAME}/g" README.md
 replace_in_file "s/package_name/${PACKAGE_NAME}/g" README.md
 
 rm ./setup.sh
+make install
 git add .
 git commit -m "Setup the project settings"
-
-make install
