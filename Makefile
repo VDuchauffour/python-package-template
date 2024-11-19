@@ -1,4 +1,13 @@
-.PHONY: clean clean-build clean-pyc clean-test clean-misc lint test
+.PHONY: pre-commit-install install clean clean-build clean-pyc clean-test clean-misc check-lint lint unit-tests integration-tests prepare-integration-tests tests
+
+# install pre-commit
+pre-commit-install:
+	uvx pre-commit install
+
+# install dependencies
+install: clean pre-commit-install
+	uv sync
+
 
 # remove all build, test, coverage and Python artifacts
 clean: clean-build clean-pyc clean-test clean-misc
@@ -32,11 +41,34 @@ clean-misc:
 	rm -rf .ruff_cache/
 	rm -rf .mypy_cache/
 
-# lint the package
-lint:
-	ruff check .
-	ruff format --check .
+# check the linting of the project
+check-lint:
+	poetry run ruff check .
+	poetry run ruff format --check .
 
-# test the package
-test: clean-test
-	pytest -vv
+# perform the linting on the project
+lint:
+	poetry run ruff check --fix .
+	poetry run ruff format .
+
+# run unit tests
+unit-tests: install
+	poetry run pytest --collect-only --no-cov -m "not integration"; EXITCODE=$$?; \
+	if [ $$EXITCODE = 0 ]; then poetry run pytest -vv -s -m "not integration"; \
+	elif [ $$EXITCODE = 5 ]; then true; \
+	else exit $$EXITCODE; \
+	fi
+
+# prepare integration test
+prepare-integration-tests: install
+
+# run integration tests
+integration-tests: prepare-integration-tests
+	poetry run pytest --collect-only --no-cov -m "integration"; EXITCODE=$$?; \
+	if [ $$EXITCODE = 0 ]; then poetry run pytest -vv --no-cov -s -m "integration"; \
+	elif [ $$EXITCODE = 5 ]; then true; \
+	else exit $$EXITCODE; \
+	fi
+
+# run all tests
+tests: unit-tests integration-tests
