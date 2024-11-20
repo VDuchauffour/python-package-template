@@ -7,6 +7,11 @@ on:
       - opened
       - edited
       - reopened
+  workflow_run:
+    workflows:
+      - PR autocreate
+    types:
+      - completed
 permissions: write-all
 
 jobs:
