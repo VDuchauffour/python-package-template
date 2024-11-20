@@ -3,7 +3,6 @@
 # Python Package Template
 
 _Lightweight template for Python package._
-TEST
 
 </div>
 
