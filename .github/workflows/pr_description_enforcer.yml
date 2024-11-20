@@ -9,7 +9,7 @@ on:
       - reopened
   workflow_run:
     workflows:
-      - PR autocreate
+      - PR Autocreate
     types:
       - completed
 permissions: write-all

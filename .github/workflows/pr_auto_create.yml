@@ -1,5 +1,5 @@
 # Auto create a Pull Request when a push is made
-name: PR autocreate
+name: PR Autocreate
 
 on:
   push:

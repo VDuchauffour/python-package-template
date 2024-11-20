@@ -5,7 +5,7 @@ on:
   pull_request_target:
   workflow_run:
     workflows:
-      - PR autocreate
+      - PR Autocreate
     types:
       - completed
 
