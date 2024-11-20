@@ -1,4 +1,4 @@
-# Auto create a Pull Request when a push is made and label it
+# Auto create a Pull Request when a push is made
 name: PR auto
 
 on:
@@ -34,14 +34,8 @@ jobs:
           fi
       - name: Create PR
         if: ${{ !steps.check.outputs.skip }}
-        run: |
+        run: |-
           gh pr create \
           --head ${{ github.ref_name }} \
           --base ${{ github.event.repository.default_branch }} \
           --title ${{ github.ref_name }} --body '' --draft
-  labeler:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: TimonVS/pr-labeler-action@v5
-        with:
-          repo-token: ${{ github.token }}
