@@ -1,0 +1,20 @@
+# Auto create a Pull Request when a push is made
+name: PR autocreate
+
+on:
+  push:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Create PR
+        uses: peter-evans/create-pull-request@v7
+        with:
+          title: ${{ github.ref_name }}
