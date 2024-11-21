@@ -30,14 +30,12 @@ The project contains multiple Github workflow, including:
 
 - `ci`, apply linting and run tests with `pytest` and `pytest-cov`.
 - `draft`, draft a new release when a commit is pushed on branch `main` or `master` given its config file located at `.github/release-drafter.yml`.
-- `release`, build the package with `cibuildwheel` when a release is published and upload it to the PyPI index.
+- `release`, build the package when a release is published and upload it to the PyPI index.
 - `pre_commit_auto_update`, run a `pre-commit autoupdate` every month and open a pull request if needed.
-- `pr_description_enforcer`, enforce description on pull requests, otherwise close the pull request.
-- `pr_labeler`, apply a corresponding label on a pull request given its config file located at `.github/pr-labeler.yml`
+- `pr_create`, create a PR when a new branch is pushed.
+- `pr_labeler`, apply a corresponding label on a pull request given its config file located at `.github/pr-labeler.yml`.
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
-
-The generated badges are located in the `.github/assets/badges/` folder.
 
 ## Acknowledgements
 
@@ -60,7 +58,7 @@ ______________________________________________________________________
   </tr>
   <tr>
     <td>
-      CI/CD
+      CI
     </td>
     <td>
       <a href="https://github.com/owner-name/repo-name/actions/workflows/ci.yml">
@@ -68,9 +66,6 @@ ______________________________________________________________________
       </a>
       <a href="https://github.com/owner-name/repo-name/actions/workflows/release.yml">
         <img src="https://github.com/owner-name/repo-name/actions/workflows/release.yml/badge.svg" alt="Release">
-      </a>
-      <a href="https://interrogate.readthedocs.io/en/latest/">
-        <img src=".github/assets/badges/interrogate_badge.svg" alt="Interrogate">
       </a>
       <a href="https://codecov.io/gh/owner-name/repo-name">
         <img src="https://codecov.io/gh/owner-name/repo-name/branch/main/graph/badge.svg" alt="Codecov">
