@@ -3,6 +3,11 @@ name: PR Labeler
 
 on:
   pull_request:
+  workflow_run:
+    workflows:
+      - PR auto
+    types:
+      - completed
 
 permissions:
   contents: read
