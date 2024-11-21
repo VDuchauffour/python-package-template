@@ -32,7 +32,6 @@ The project contains multiple Github workflow, including:
 - `draft`, draft a new release when a commit is pushed on branch `main` or `master` given its config file located at `.github/release-drafter.yml`.
 - `release`, build the package when a release is published and upload it to the PyPI index.
 - `pre_commit_auto_update`, run a `pre-commit autoupdate` every month and open a pull request if needed.
-- `pr_create`, create a PR when a new branch is pushed.
 - `pr_labeler`, apply a corresponding label on a pull request given its config file located at `.github/pr-labeler.yml`.
 
 Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
