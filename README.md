@@ -139,11 +139,11 @@ Insert example usage here.
 In order to install all development dependencies, run the following command:
 
 ```shell
-pip install -e ".[dev]"
+uv sync
 ```
 
 To ensure that you follow the development workflow, please setup the pre-commit hooks:
 
 ```shell
-pre-commit install
+uv run pre-commit install
 ```
