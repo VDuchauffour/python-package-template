@@ -43,14 +43,14 @@ clean-misc:
 
 # check the linting of the project
 check-lint:
-	poetry run ruff check .
-	poetry run ruff format --check .
+	uv run ruff check .
+	uv run ruff format --check .
 
 # perform the linting on the project
 lint:
 	uv run ruff check --fix .
 	uv run ruff format .
 
-# run tests
-tests: install
+# test the package
+tests: clean-test install
 	uv run pytest -vv -s
