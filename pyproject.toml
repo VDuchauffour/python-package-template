@@ -35,6 +35,7 @@ source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
 version-file = "src/package_name/_version.py"
+reinstall-pacakge = ["package_name"]
 
 [tool.ruff]
 extend-exclude = ["examples/*.py", "setup.py"]
