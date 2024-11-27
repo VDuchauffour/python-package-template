@@ -7,12 +7,8 @@ keywords = []
 classifiers = []
 authors = [{ name = "", email = "package@package.com" }]
 requires-python = ">=3.12"
-version = "0.0.1"
+dynamic = ["version"]
 dependencies = []
-
-[project.urls]
-Homepage = "https://github.com/owner-name/repo-name"
-Documentation = "https://github.com/owner-name/repo-name"
 
 [dependency-groups]
 dev = [
@@ -22,6 +18,23 @@ dev = [
   "pytest-cov>=6.0.0",
   "ruff>=0.7.4",
 ]
+
+[project.urls]
+Homepage = "https://github.com/owner-name/repo-name"
+Documentation = "https://github.com/owner-name/repo-name"
+
+[tool.uv]
+cache-keys = [{ git = { commit = true, tags = true } }]
+
+[build-system]
+requires = ["hatchling", "hatch-vcs"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "vcs"
+
+[tool.hatch.build.hooks.vcs]
+version-file = "src/package_name/_version.py"
 
 [tool.ruff]
 extend-exclude = ["examples/*.py", "setup.py"]

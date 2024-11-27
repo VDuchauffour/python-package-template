@@ -35,6 +35,7 @@ replace_in_file "s/owner-name/${OWNER_NAME}/g" README.md
 replace_in_file "s/repo-name/${REPO_NAME}/g" pyproject.toml
 replace_in_file "s/repo-name/${REPO_NAME}/g" README.md
 
+replace_in_file "s/package_name/${PACKAGE_NAME}/g" pyproject.toml
 replace_in_file "s/package_name/${PACKAGE_NAME}/g" README.md
 
 rm ./setup.sh
