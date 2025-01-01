@@ -214,7 +214,7 @@ wheels = [
 
 [[package]]
 name = "repo-name"
-version = "0.1.17.dev7+ga39c230.d20241127"
+version = "0.1.dev1+gaf1c2cb"
 source = { editable = "." }
 
 [package.dev-dependencies]
