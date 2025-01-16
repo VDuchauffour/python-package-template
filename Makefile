@@ -6,6 +6,7 @@ pre-commit-install:
 
 # install dependencies
 install: clean pre-commit-install
+	uv venv
 	uv sync
 
 

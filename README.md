@@ -17,6 +17,9 @@ Things you have to do in order to properly set up our project:
 - add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
 - change your name in the `LICENSE` file.
 
+> [!CAUTION]
+> Running the `./setup.sh` command will delete any existing `.git` folder.
+
 ## About this template
 
 This project provide a flexible and lightweight Python package template. It includes the following components:
@@ -42,7 +45,7 @@ Some of these actions requires you to allow Github actions to create or approve 
 
 **DELETE EVERYTHING ABOVE FOR YOUR PROJECT**
 
-______________________________________________________________________
+---
 
 <div align="center">
 
@@ -104,7 +107,7 @@ ______________________________________________________________________
 
 </div>
 
-______________________________________________________________________
+---
 
 ## About this project
 
