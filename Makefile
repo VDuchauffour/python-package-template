@@ -20,7 +20,7 @@ clean-build:
 	rm -fr wheelhouse/
 	rm -fr .eggs/
 	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
+	find . -name '*.egg' -exec rm -fr {} +
 
 # remove Python file artifacts
 clean-pyc:
