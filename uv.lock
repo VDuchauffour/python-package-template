@@ -1,4 +1,5 @@
 version = 1
+revision = 1
 requires-python = ">=3.12"
 
 [[package]]
@@ -214,7 +215,6 @@ wheels = [
 
 [[package]]
 name = "repo-name"
-version = "0.1.dev1+g35ac8e7"
 source = { editable = "." }
 
 [package.dev-dependencies]

@@ -34,7 +34,7 @@ repos:
       - id: taplo-format
   # Formatter for markdown files
   - repo: https://github.com/executablebooks/mdformat
-    rev: 0.7.21
+    rev: 0.7.22
     hooks:
       - id: mdformat
         args:
@@ -47,7 +47,7 @@ repos:
           - mdformat-shfmt
   # An extremely fast Python linter, written in Rust
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.9.1
+    rev: v0.11.2
     hooks:
       # Run the linter
       - id: ruff
