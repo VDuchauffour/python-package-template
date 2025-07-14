@@ -8,6 +8,7 @@ pre-commit-install:
 install: clean pre-commit-install
 	uv venv
 	uv sync
+	uv pip install -e .
 
 
 # remove all build, test, coverage and Python artifacts
