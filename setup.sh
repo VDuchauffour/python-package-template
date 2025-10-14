@@ -1,4 +1,5 @@
-#!/bin/bash -ex
+#!/usr/bin/bash
+set -ex
 
 OWNER_NAME=$1
 REPO_NAME=$2
