@@ -2,7 +2,7 @@ default_language_version:
   python: python3.12
 repos:
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v5.0.0
+    rev: v6.0.0
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
@@ -24,7 +24,7 @@ repos:
         types:
           - json
   - repo: https://github.com/lyz-code/yamlfix
-    rev: 1.17.0
+    rev: 1.18.0
     hooks:
       - id: yamlfix
     # Formatter for Toml files
@@ -47,7 +47,7 @@ repos:
           - mdformat-shfmt
   # An extremely fast Python linter, written in Rust
   - repo: https://github.com/astral-sh/ruff-pre-commit
-    rev: v0.11.2
+    rev: v0.13.2
     hooks:
       # Run the linter
       - id: ruff
