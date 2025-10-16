@@ -1,0 +1,47 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": ["config:recommended"],
+  "dependencyDashboard": false,
+  "timezone": "Europe/Paris",
+  "baseBranchPatterns": ["main"],
+  "lockFileMaintenance": {
+    "enabled": true,
+    "automerge": true
+  },
+  "postUpdateOptions": ["lockFileMaintenance"],
+  "updateLockFiles": true,
+  "pre-commit": {
+    "enabled": true
+  },
+  "enabledManagers": ["pep621", "github-actions", "pre-commit"],
+  "packageRules": [
+    {
+      "matchPackageNames": ["ruff", "astral-sh/ruff-pre-commit"],
+      "matchCurrentVersion": "/^0\\./",
+      "matchUpdateTypes": ["major", "minor", "patch"],
+      "automerge": true,
+      "groupName": "ruff"
+    },
+    {
+      "matchManagers": ["pep621"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["pep621"],
+      "matchDatasources": ["pypi"],
+      "matchUpdateTypes": ["major"],
+      "automerge": false
+    },
+    {
+      "matchManagers": ["github-actions"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    },
+    {
+      "matchManagers": ["pre-commit"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "automerge": true
+    }
+  ]
+}
