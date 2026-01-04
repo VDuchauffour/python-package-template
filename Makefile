@@ -47,11 +47,13 @@ clean-misc:
 check-lint:
 	uv run ruff check .
 	uv run ruff format --check .
+	uv run ty check .
 
 # perform the linting on the project
 lint:
 	uv run ruff check --fix .
 	uv run ruff format .
+	uv run ty check .
 
 # test the package
 tests: clean-test install
