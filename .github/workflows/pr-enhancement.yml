@@ -7,6 +7,7 @@ jobs:
   pr-labeler-with-branches:
     permissions:
       contents: read
+      pull-requests: write
     runs-on: ubuntu-latest
     steps:
       - uses: TimonVS/pr-labeler-action@v5
