@@ -2,6 +2,11 @@ name: PR enhancement
 
 on:
   pull_request:
+    types:
+      - edited
+      - opened
+      - reopened
+      - synchronize
 
 jobs:
   pr-labeler-with-branches:
