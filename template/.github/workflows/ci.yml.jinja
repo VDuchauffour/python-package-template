@@ -5,7 +5,7 @@ on:
   push:
 
 concurrency:
-  group: ${{ github.workflow }}-${{ github.head_ref || github.ref_name }}
+  group: {% raw %}${{ github.workflow }}-${{ github.head_ref || github.ref_name }}{% endraw %}
   cancel-in-progress: true
 
 permissions:
@@ -23,8 +23,8 @@ jobs:
         uses: astral-sh/setup-uv@v8.3.2
         with:
           enable-cache: true
-      - name: Install Python 3.12
-        run: uv python install 3.12
+      - name: Install Python {{ python_version }}
+        run: uv python install {{ python_version }}
       - name: Install dependencies
         run: make install
       - name: Run linting
@@ -32,19 +32,18 @@ jobs:
           make check-lint
 
   tests:
-    name: Run tests (${{ matrix.os }}, Python ${{ matrix.python-version }})
+    name: Run tests ({% raw %}${{ matrix.os }}{% endraw %}, Python {% raw %}${{ matrix.python-version }}{% endraw %})
     needs: lint
-    runs-on: ${{ matrix.os }}
+    runs-on: {% raw %}${{ matrix.os }}{% endraw %}
     strategy:
       matrix:
         os:
           - ubuntu-latest
         python-version:
-          - '3.12'
-          - '3.13'
+          - '{{ python_version }}'
     env:
-      OS: ${{ matrix.os }}
-      PYTHON: ${{ matrix.python-version}}
+      OS: {% raw %}${{ matrix.os }}{% endraw %}
+      PYTHON: {% raw %}${{ matrix.python-version}}{% endraw %}
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -52,8 +51,8 @@ jobs:
         uses: astral-sh/setup-uv@v8.3.2
         with:
           enable-cache: true
-      - name: Install Python ${{ matrix.python-version }}
-        run: uv python install ${{ matrix.python-version }}
+      - name: Install Python {% raw %}${{ matrix.python-version }}{% endraw %}
+        run: uv python install {% raw %}${{ matrix.python-version }}{% endraw %}
       - name: Run tests
         run: |
           make tests
@@ -62,7 +61,7 @@ jobs:
         with:
           file: ./coverage.xml
           env_vars: OS,PYTHON
-          token: ${{ secrets.CODECOV_TOKEN }}
+          token: {% raw %}${{ secrets.CODECOV_TOKEN }}{% endraw %}
           fail_ci_if_error: true
           flags: unittests
           verbose: true

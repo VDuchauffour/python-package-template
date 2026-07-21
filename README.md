@@ -38,18 +38,19 @@ Answer the prompts (project name, license, GitHub owner, etc.) and Copier render
 
 ## Template options
 
-| Prompt                | Type   | Default             | Notes                                               |
-| --------------------- | ------ | ------------------- | --------------------------------------------------- |
-| `project_name`        | str    | `my-python-project` | Distribution name (pyproject.toml)                  |
-| `project_description` | str    | `A Python project`  |                                                     |
-| `github_owner`        | str    | `myusername`        |                                                     |
-| `github_repo`         | str    | `= project_name`    |                                                     |
-| `package_name`        | str    | `= project_name`    | Python import name (hyphens → underscores)          |
-| `author_name`         | str    | _(empty)_           |                                                     |
-| `author_email`        | str    | _(empty)_           |                                                     |
-| `license`             | choice | `MIT`               | MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, None        |
-| `copyright_holder`    | str    | `= author_name`     | Asked only for MIT / GPL-3.0 / BSD-3-Clause         |
-| `publish_to_pypi`     | bool   | `false`             | Adds a release-triggered PyPI publish workflow      |
+| Prompt                | Type   | Default             | Notes                                              |
+| --------------------- | ------ | ------------------- | -------------------------------------------------- |
+| `project_name`        | str    | `my-python-project` | Distribution name (pyproject.toml)                 |
+| `project_description` | str    | `A Python project`  |                                                    |
+| `github_owner`        | str    | `myusername`        |                                                    |
+| `github_repo`         | str    | `= project_name`    |                                                    |
+| `package_name`        | str    | `= project_name`    | Python import name (hyphens → underscores)         |
+| `python_version`      | str    | `3.14`              | Minimum Python version (ruff, CI, pre-commit, ...) |
+| `author_name`         | str    | _(empty)_           |                                                    |
+| `author_email`        | str    | _(empty)_           |                                                    |
+| `license`             | choice | `MIT`               | MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, None       |
+| `copyright_holder`    | str    | `= author_name`     | Asked only for MIT / GPL-3.0 / BSD-3-Clause        |
+| `publish_to_pypi`     | bool   | `false`             | Adds a release-triggered PyPI publish workflow     |
 
 ## Repository layout
 

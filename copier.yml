@@ -30,6 +30,11 @@ package_name:
   help: The Python package import name (used in src/)
   default: '{{ project_name|replace("-", "_")|replace(" ", "_") }}'
 
+python_version:
+  type: str
+  help: Minimum Python version to target
+  default: '3.14'
+
 author_name:
   type: str
   help: Author name for pyproject.toml (optional)

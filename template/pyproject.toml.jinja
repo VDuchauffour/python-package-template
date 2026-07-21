@@ -6,7 +6,7 @@ readme = "README.md"
 {% endif %}keywords = []
 classifiers = []
 {% if author_name %}authors = [{ name = "{{ author_name }}"{% if author_email %}, email = "{{ author_email }}"{% endif %} }]
-{% endif %}requires-python = ">=3.12"
+{% endif %}requires-python = ">={{ python_version }}"
 dynamic = ["version"]
 dependencies = []
 
@@ -40,7 +40,7 @@ reinstall-pacakge = ["{{ package_name }}"]
 
 [tool.ruff]
 extend-exclude = ["examples/*.py", "setup.py"]
-target-version = "py312"
+target-version = "py{{ python_version|replace('.', '') }}"
 force-exclude = true
 line-length = 99
 
