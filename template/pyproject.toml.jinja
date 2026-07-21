@@ -1,12 +1,12 @@
 [project]
-name = "repo-name"
-description = "Add your description here"
+name = "{{ project_name }}"
+description = "{{ project_description }}"
 readme = "README.md"
-license = { file = "LICENSE" }
-keywords = []
+{% if license != 'None' %}license = { file = "LICENSE" }
+{% endif %}keywords = []
 classifiers = []
-authors = [{ name = "", email = "package@package.com" }]
-requires-python = ">=3.12"
+{% if author_name %}authors = [{ name = "{{ author_name }}"{% if author_email %}, email = "{{ author_email }}"{% endif %} }]
+{% endif %}requires-python = ">=3.12"
 dynamic = ["version"]
 dependencies = []
 
@@ -21,8 +21,8 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/owner-name/repo-name"
-Documentation = "https://github.com/owner-name/repo-name"
+Homepage = "https://github.com/{{ github_owner }}/{{ github_repo }}"
+Documentation = "https://github.com/{{ github_owner }}/{{ github_repo }}"
 
 [tool.uv]
 cache-keys = [{ git = { commit = true, tags = true } }]
@@ -35,8 +35,8 @@ build-backend = "hatchling.build"
 source = "vcs"
 
 [tool.hatch.build.hooks.vcs]
-version-file = "src/package_name/_version.py"
-reinstall-pacakge = ["package_name"]
+version-file = "src/{{ package_name }}/_version.py"
+reinstall-pacakge = ["{{ package_name }}"]
 
 [tool.ruff]
 extend-exclude = ["examples/*.py", "setup.py"]

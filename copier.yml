@@ -1,0 +1,80 @@
+_templates_suffix: .jinja
+
+_subdirectory: template
+
+_jinja_extensions:
+  - jinja2_time.TimeExtension
+
+project_name:
+  type: str
+  help: The project name (used in pyproject.toml as the distribution name)
+  default: my-python-project
+
+project_description:
+  type: str
+  help: A short description of the project
+  default: A Python project
+
+github_owner:
+  type: str
+  help: GitHub username or organization
+  default: myusername
+
+github_repo:
+  type: str
+  help: GitHub repository name
+  default: '{{ project_name }}'
+
+package_name:
+  type: str
+  help: The Python package import name (used in src/)
+  default: '{{ project_name|replace("-", "_")|replace(" ", "_") }}'
+
+author_name:
+  type: str
+  help: Author name for pyproject.toml (optional)
+  default: ''
+
+author_email:
+  type: str
+  help: Author email for pyproject.toml (optional)
+  default: ''
+
+license:
+  type: str
+  help: License for the project
+  choices:
+    - MIT
+    - Apache-2.0
+    - GPL-3.0
+    - BSD-3-Clause
+    - None
+  default: MIT
+
+copyright_holder:
+  type: str
+  help: Copyright holder name (used in the LICENSE file)
+  default: '{{ author_name }}'
+  when: "{{ license in ['MIT', 'GPL-3.0', 'BSD-3-Clause'] }}"
+
+publish_to_pypi:
+  type: bool
+  help: Include a GitHub Actions workflow to publish releases to PyPI?
+  default: false
+
+_exclude:
+  - .git
+  - copier.yml
+  - copier.yaml
+  - '*.py[co]'
+  - __pycache__
+  - .coverage
+  - htmlcov
+  - .venv
+  - uv.lock
+  - .omo
+  - '*.lcov'
+
+_tasks:
+  - '{% if not publish_to_pypi %}rm -f .github/workflows/publish-package.yml{% endif %}'
+  - "{% if license == 'None' %}rm -f LICENSE{% endif %}"
