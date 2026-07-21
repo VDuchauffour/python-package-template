@@ -1,152 +1,76 @@
-<div align="center">
+# Python Copier Template
 
-# Python Package Template
+A [Copier](https://copier.readthedocs.io) template for scaffolding Python projects with batteries included: CI/CD, pre-commit hooks, automated dependency updates, and a `Makefile` task runner.
 
-_Lightweight template for Python package._
+## Usage
 
-</div>
-
-## How to complete to setup your project
-
-Things you have to do in order to properly set up our project:
-
-- run `./setup.sh <owner-name> <repo-name> <package_name>` to replace all references of `owner-name`, `repo-name` and `package_name` with the corresponding values
-- setup the corresponding Python versions in the `pyproject.toml`, `.pre-commit-config.yaml` and `.github/workflows/` files, defined to Python 3.12 by default
-- complete the metadata in `pyproject.toml` and `README.md`
-- add missing code owners in the `.github` directory if necessary.
-- add your PyPI API token as Github secret with the name `PYPI_API_TOKEN`.
-- change your name in the `LICENSE` file.
-
-> [!CAUTION]
-> Running the `./setup.sh` command will delete any existing `.git` folder.
-
-## About this template
-
-This project provide a flexible and lightweight Python package template. It includes the following components:
-
-- a `pyproject.toml` file which define the configuration of the dependencies. The specifications defined by PEP 621 of project metadata are stored in this file.
-- a `.pre-commit-config.yaml` pipeline which apply the same dependencies
-
-### Github actions
-
-The project contains multiple Github workflow, including:
-
-- `ci`, apply linting and run tests with `pytest` and `pytest-cov`.
-- `draft`, draft a new release when a commit is pushed on branch `main` or `master` given its config file located at `.github/release-drafter.yml`.
-- `release`, build the package when a release is published and upload it to the PyPI index.
-- `pre_commit_auto_update`, run a `pre-commit autoupdate` every month and open a pull request if needed.
-- `pr_labeler`, apply a corresponding label on a pull request given its config file located at `.github/pr-labeler.yml`.
-
-Some of these actions requires you to allow Github actions to create or approve pull requests. [Learn more.](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/enabling-features-for-your-repository/managing-github-actions-settings-for-a-repository#preventing-github-actions-from-creating-or-approving-pull-requests)
-
-## Acknowledgements
-
-- [Lightning-hydra-template](https://github.com/ashleve/lightning-hydra-template)
-
-**DELETE EVERYTHING ABOVE FOR YOUR PROJECT**
-
----
-
-<div align="center">
-
-# Your Project Name
-
-<table>
-  <tr>
-    <td>
-    </td>
-    <td>
-    </td>
-  </tr>
-  <tr>
-    <td>
-      CI
-    </td>
-    <td>
-      <a href="https://github.com/owner-name/repo-name/actions/workflows/ci.yml">
-        <img src="https://github.com/owner-name/repo-name/actions/workflows/ci.yml/badge.svg" alt="CI Pipeline">
-      </a>
-      <a href="https://github.com/owner-name/repo-name/actions/workflows/release.yml">
-        <img src="https://github.com/owner-name/repo-name/actions/workflows/release.yml/badge.svg" alt="Release">
-      </a>
-      <a href="https://codecov.io/gh/owner-name/repo-name">
-        <img src="https://codecov.io/gh/owner-name/repo-name/branch/main/graph/badge.svg" alt="Codecov">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-        Meta
-    </td>
-    <td>
-      <a href="https://github.com/astral-sh/ruff">
-        <img src="https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/charliermarsh/ruff/main/assets/badge/v2.json" alt="Ruff">
-      </a>
-      <a href="https://github.com/pre-commit/pre-commit">
-        <img src="https://img.shields.io/badge/pre--commit-enabled-brightgreen?logo=pre-commit" alt="Pre-commit">
-      </a>
-      <a href="https://spdx.org/licenses/">
-        <img src="https://img.shields.io/github/license/owner-name/repo-name?color=blueviolet" alt="License">
-      </a>
-    </td>
-  </tr>
-  <tr>
-    <td>
-        Package
-    </td>
-    <td>
-      <a href="https://pypi.org/project/package_name/">
-        <img src="https://img.shields.io/pypi/pyversions/repo-name.svg?logo=python&label=Python&logoColor=gold" alt="PyPI - Python version">
-      </a>
-      <a href="https://pypi.org/project/package_name/">
-        <img src="https://img.shields.io/pypi/v/repo-name.svg?logo=pypi&label=PyPI&logoColor=gold" alt="PyPI - Version">
-      </a>
-    </td>
-  </tr>
-</table>
-
-</div>
-
----
-
-## About this project
-
-My description
-
-## ️️⚙️ Installation
-
-Install the package from the PyPI registry.
-
-```shell
-pip install package
+```sh
+copier copy gh:VDuchauffour/python-template path/to/destination
 ```
 
-Install the package from the latest commit of the repository.
+> [!WARNING]
+> This template relies on the [`jinja2-time`](https://pypi.org/project/jinja2-time/) extension (declared via `_jinja_extensions` in `copier.yml`). Copier will fail to render with an error about `jinja2_time.TimeExtension` if it is not installed. Install it beforehand, either as an ephemeral `uvx` run or a persistent install via `uv` / `pipx`:
+>
+> ```sh
+> # Option 1 — inject into an ephemeral uvx run
+> uvx --with jinja2-time copier copy gh:VDuchauffour/python-template path/to/destination
+>
+> # Option 2 — install globally once with uv
+> uv tool install copier --with jinja2-time
+>
+> # Option 3 — install globally once with pipx
+> pipx install copier
+> pipx inject copier jinja2-time
+> ```
 
-```shell
-pip install git+https://github.com/owner-name/package_name
+Answer the prompts (project name, license, GitHub owner, etc.) and Copier renders a ready-to-develop project into `path/to/destination/`.
+
+## What you get
+
+- **Python** project (`uv` + `hatchling` + `hatch-vcs` for versioning, `src/` layout)
+- **CI/CD** via GitHub Actions — ruff lint/format, ty type check, tests with coverage (pytest → Codecov), release drafter, conventional PR titles
+- **Pre-commit** hooks — trailing whitespace, yamlfix, taplo, mdformat, ruff, prettier
+- **Renovate** config for automated dependency updates
+- **Makefile** recipes for common tasks (`make ci`, `make lint`, `make tests`, ...)
+- **Ruff** for linting and formatting
+- **ty** for type checking
+- Optional **PyPI publish** workflow (toggle via `publish_to_pypi`)
+
+## Template options
+
+| Prompt                | Type   | Default             | Notes                                              |
+| --------------------- | ------ | ------------------- | -------------------------------------------------- |
+| `project_name`        | str    | `my-python-project` | Distribution name (pyproject.toml)                 |
+| `project_description` | str    | `A Python project`  |                                                    |
+| `github_owner`        | str    | `myusername`        |                                                    |
+| `github_repo`         | str    | `= project_name`    |                                                    |
+| `package_name`        | str    | `= project_name`    | Python import name (hyphens → underscores)         |
+| `python_version`      | str    | `3.14`              | Minimum Python version (ruff, CI, pre-commit, ...) |
+| `author_name`         | str    | _(empty)_           |                                                    |
+| `author_email`        | str    | _(empty)_           |                                                    |
+| `license`             | choice | `MIT`               | MIT, Apache-2.0, GPL-3.0, BSD-3-Clause, None       |
+| `copyright_holder`    | str    | `= author_name`     | Asked only for MIT / GPL-3.0 / BSD-3-Clause        |
+| `publish_to_pypi`     | bool   | `false`             | Adds a release-triggered PyPI publish workflow     |
+
+## Repository layout
+
+```text
+.
+├── copier.yml                 # template definition (prompts, excludes, tasks)
+├── template/                  # everything that gets rendered into a project
+│   ├── pyproject.toml.jinja
+│   ├── LICENSE.jinja
+│   ├── README.md.jinja
+│   ├── Makefile
+│   ├── .python-version
+│   ├── src/{{ package_name }}/  # dynamic package directory
+│   ├── .github/               # workflows, renovate, release-drafter, ...
+│   ├── .vscode/
+│   └── ...
+└── .github/workflows/
+    └── pr-enhancement.yml     # CI for this template repo (PR title/label rules)
 ```
 
-## ⚡ Usage
+## License
 
-### Example
-
-```python
-from package_name import foo
-```
-
-Insert example usage here.
-
-## ⛏️ Development
-
-In order to install all development dependencies, run the following command:
-
-```shell
-uv sync
-```
-
-To ensure that you follow the development workflow, please setup the pre-commit hooks:
-
-```shell
-uv run pre-commit install
-```
+MIT.
